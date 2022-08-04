@@ -1,244 +1,213 @@
 body{
-  margin:0;
-  position:relative;
+    margin: 5% 10% 0 10%;
+    background-image: url("./images/whitepaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Quicksand', sans-serif;
 }
-header{
-   width:100%;
-  height:120px;
-  background-color:black;
-  color:white;
-  font-size: 45px;
-  font-family: 'Josefin Sans', sans-serif;
- flex-shrink:3;
- display:flex;
-  flex-direction:row;
-  flex-wrap:nowrap;
-  justify-content:space-around;
-  align-items:center;
-  row-gap:20px;
-  padding:0 10px;
-  margin:0px;
-  
-  position:fixed;
-  top:0;
-  left:0;
-  
-  z-index: 100;
-}
-a{
-  display:flex;
-  text-decoration:none;
-  color:white;
-  justify-content:space-around;
-  margin:5px;
-}
-a:hover{
-  color:grey;
-}
-.hiPlusAnakyn{
-  width:1000px;
-  position:absolute;
-  
-top: 0px;
-left:0px;
-  z-index:99;
-  display:flex;
-  flex-direction:column;
-  flex-wrap:nowrap;
+main{
+    
+    width:100%;
+    height: 100%;
+    
+    
+
+    
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+
+
 }
 
-.univerzum{
-  width:1200px;
-  display:flex;
-  flex-direction:column;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  margin-top:120px;
-  margin-left:0;
-  margin-right:0;
-  margin-bottom:0;
-  
+section{
+    flex-grow: 1;
+    flex-shrink: 1;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    
 }
 
-.kep{
-  display:flex;
-  width:400px;
-  height:400px;
-  background-size: cover;
-  background-image: url("https://raw.githubusercontent.com/green-fox-academy/myfirstapp-syllabus/master/assets/first-website-header.png");
-  background-position:-300px 0px;
-  width:1278px;
-  height:400px;
-  z-index: 1;
- 
- font-family: 'Abril Fatface', cursive; 
- 
-  position:relative;
-  margin:0px;
-  
+#nagyKep{
+width:70%;
+height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:60px;
+    margin-bottom:15px;
+}
+
+#nagyKepBefoglalo{
+
+    width:1000px;
+    background-color: white;
+    height:auto;
+    
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-evenly;
+    align-items: center;
+    align-content:stretch;
+    box-shadow: 0px 5px 5px 5px rgba(63, 60, 60, 0.381);
+}
+
+#atlatszoResz{
+    width:-webkit-fill-available;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    background-color: rgba(60, 60, 60, 0.7);
+    padding:1em;
+    padding-bottom:0;
+    display:none;
+    color:white;
 }
 
 
-.Anakin{
-  display:flex;
-  align-self:flex-end;
-  font-size:75px;
-  font-weight:lighter;
-  position:absolute;
-  top:200px;
-  left:90px;
-  font-weight:bold;
-  
-}
-.Skywalker{
-  display:flex;
-  align-self:flex-end;
-  font-size:75px;
-  font-weight:lighter;
-  position:absolute;
-  top:260px;
-  left:90px;
-  font-weight:bold;
-  
-}
-.hiMyNameIs{
-   display:flex;
-  align-self:flex-start;
-  font-size:35px;
-  font-weight:lighter;
-  position:absolute;
-  top:200px;
-  left:90px;  
-  font-weight:bold;
-}
-.bevezeto{
-  display:flex;
-  margin:0;
+#atlatszoResz h1{
+    font-size:18px;
+    margin:0;
+    
+    
 }
 
-.bevezeto p{
-  font-family: 'Josefin Sans', sans-serif;
-  font-size:25px;
-}
-blockquote{
-  display:flex;
-  width:5em;
-  height:5em;
-  background:rgb(68,68,68);
-  margin:0;
-  padding:40px;
-  font-family: 'Abril Fatface';
-  font-size:69px;
-  color:white;
-  position:relative;
-  z-index:10;
-}
-blockquote::before {
-  content: '❝';
-  position:absolute;
-  top:-30px;
-  left:5px;
-  
-  font-size:120px;
+#nagyKepBefoglalo:hover #atlatszoResz{
+    display:block;
+    
+} 
+
+.oldalsav{
+    display:block;
+    flex-grow: 1;
+    width:10%;
+    height:30px;
+    
+    justify-content:space-evenly;
+    align-items: center;
+    align-content:stretch;
+    text-align: center;
 }
 
-.elsolista{
-  line-height:1.5; 
-  font-family: 'Josefin Sans', sans-serif;
-  font-size:25px;
-  align-self:flex-start;
- 
-  padding:0px;
-}
-ul{
-  padding-top:0; 
-  margin-top:0;
-  margin-bottom:60px;
-  list-style-type: square;
+#balAside{
+    order:1;
 }
 
-h3{
-  text-transform:uppercase;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size:35px;
-}
-.Notable{
-  padding:30px;
-  width:60%;
-  
-}
-
-h4{
-  font-size:35px;
-  font-family: 'Josefin Sans', sans-serif;
-  line-height:1.5;
+#nagyKepkeret{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    order:2;
+    flex-grow: 7;
+    width:950px;
+    height:100%;
+    position:relative;
 }
 
-p{
-  font-family: 'Josefin Sans', sans-serif;
-   font-size:25px;
-  line-height: 1.5;
+#jobbAside{
+    order:3;
 }
 
-.experience{
-  padding:30px;
-  
-}
-.alcimmel{
-  margin-bottom:0;
-  padding-bottom:0;
+#nagyKepkeret img{
+    width:95%;
+    height:400px;
+    max-height:600px;
+    object-fit: cover;
 }
 
-h5{
-font-family: 'Merriweather', serif;
-  margin-top:0;
-  font-size:25px;
+#prevButton{
+    background: url("./images/arrow.svg") no-repeat;
+    background-size:contain;
+    height: 45px;
+    width: 45px;
+    border:none;
+
+}
+#prevButton:hover{
+    height: 55px;
+    width: 55px;
+
 }
 
-.kislista{
-  font-family: 'Josefin Sans', sans-serif;
-  line-height:1.5; 
-  font-size:20px;
-  
-  padding-bottom:0;
+#nextButton{
+    background: url("./images/arrow.svg") no-repeat ;
+    background-size:contain;
+    transform: rotate(0.5turn);
+    height: 45px;
+    width: 45px;
+    border:none;
+
+}
+#nextButton:hover{
+    height: 55px;
+    width: 55px;
+   
 }
 
-.kislista ul{
-  margin-bottom:0;
+#kiskep{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding:20px;
+    width:1100px;
 }
 
-.formal{
-  padding:30px;
-  border-bottom:5px solid black;
+.thumbnail{
+    height:80px;
+    width:150px;
+    padding:1px;
+    margin:5px;
+    box-shadow: 0px 0px 2px 2px darkgrey;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border:1px solid white;
+    position:relative;
 }
 
-.intrests{
-  padding:30px;  
-  display:none;
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    
 }
 
-#ELSO{
-  display:flex;
-  flex-direction:row;
-  flex-wrap:nowrap;
-  margin-bottom:60px;
-}
-.foblokkok{
-  display:flex;
-  flex-direction:row;
-  flex-wrap:nowrap;
-  justify-content:flex-start;
-  align-items:flex-start;
-  padding-right:20%;
-  margin-bottom:40px;  
+.thumbnail:hover{
+    border:1px solid black;
 }
 
+.thumbnailKiemeles{
+    border:1px solid lightgray;
+    box-shadow: 0px 0px 5px 5px gray;
 
-.szovegtomb{
-  padding:30px;
-  margin-bottom:40px;
 }
-.szovegtombelso{
-  padding:30px;
-  padding-left:40px;
+
+.kisKepLeiras{
+    width:100%;
+    height:fit-content;
+    display:none;
+    background-color: rgba(40, 40, 40, 0.7);
+    border-radius: 3px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    border: none;   
+    position:absolute;
+    left: 0px;
+    top: -50px;
+    
+    text-align: center;
+}
+
+.thumbnail:hover .kisKepLeiras{
+display: block;
 }

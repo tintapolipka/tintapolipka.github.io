@@ -1,144 +1,40 @@
 <!DOCTYPE html>
-<html lang="hu" >
+<html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <title>Saját weboldalam 2 </title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans&family=Merriweather:ital,wght@1,300&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Első webalkalmazásom</title>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<header>
-  <a href="#bio">Bio</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#experience">Experience</a>
-  <a href="#training">Training</a>
-</header>
-<div class="hiPlusAnakyn">
-<h2 class="hiMyNameIs">Hi, My name is</h2>
- <h1 class="Anakin">Anakin<h1>
- <h1 class="Skywalker">Skywalker<h1>
-</div>
-<div class="univerzum">   
- 
-       
+   <main>  
+     <section id="nagykep">
+        <div id="nagyKepBefoglalo">
+            <aside class="oldalsav" id="balAside"> <button id="prevButton" onclick="prevkep()"></button></aside>
+                
+                <div id="nagyKepkeret">
+                    <div id="atlatszoResz">
+                        <h1 id="photo-title"></h1>
+                        <p id="photo-description"></p>
+                        </div>
+                    <img id="photo" src=""  alt="kecske">
 
-   <section id="ELSO" class="foblokkok">
-     <div class="kep"></div>
-    <section class="szovegtombelso">
-     <section id="bio" class="bevezeto">
-      <p><strong>Analytical, goal oriented leader</strong> with proven track record in management and
-enforcement Space Fleet Operations or Frontend Development. Wide range of
-hands-on experience, including:</p>
+                    
+                    
+                </div>
+            <aside class="oldalsav" id="jobbAside"> <button id="nextButton" onclick="nextkep()"></button></aside>
+        </div>
       </section>
-    <section class="elsolista">
-      <ul>
-        <li>Large scale construction projects oversight</li>
-<li>Advanced forms of mind control</li>
-<li>Planetary scale demolitions operations</li>
-<li>Fugitive recovery services</li>
-      </ul>
-     </section>   
-    </section>
-  </section>
-   <section id="MASODIK" class="foblokkok">   
-    <blockquote>Together we can rule the galaxy</blockquote>
-    <section id="achievements" class="Notable ">
-      <h3>Notable achievements</h3>
-      <h4>Designed, built and piloted a custom pod racer. 32 BBY Boonta Eve Classic Race Champion.</h4>
-      <p>In my spare time at Wald's Parts junk shop I designed and built a Class III open
-cockpit Podracer capable of 588 mph top speed. Went on to win the Boonta Eve
-Classic race in 32 BBY - first ever win by a human. Generated documented company
-revenue of over 59 wupiupi during the course of my enslavement.</p>
-      <h4>Oversight of DS1 and DS2 Orbital Battle Stations construction projects</h4>
-    <p>During my tenure as a Supreme Imperial Fleet Commander I was in charge of large
-capital construction projects for the Deep Space Fleet. Performed acceptance
-testing of the DS1 SuperLaser in 0 BBY by annihilating Alderaan - a terrestrial
-class planet in the Core Worlds region. Successfully tripled the deep space fire
-power of the imperial fleet in accordance with the Tarkin Doctrine before losing
-both projects to run-away photon torpedoes.</p>
-    </section>
-   </section>
-   <section id="HARMADIK" class="foblokkok"> 
-    <blockquote>I find your lack of faith disturbing.</blockquote>  
-    <section id="experience" class="experience">
-      <h3>Experience</h3>
-      <h4 class="alcimmel">Sith Empire Headquarters, Dromund Kaas</h4>
-      <h5>
-       Supreme Commander of Imperial Forces, Emperor's Enforcer
-      </h5>
-    <div class="kislista">
-     <ul >
-        <li>As the right-hand man to Emperor Sidious, hunted down jedi survivors and
-  enforced the will of the empire;</li>
-<li>Oversaw construction of the first generation Death Star;</li>
-<li>First ever Imperial Supreme Commander;</li>
-      </ul>
+         <section id="kiskep">
         
-    </div>
-    <h4 class="alcimmel">Wally's Parts / Toyarian Watto junk shop, Mos Espa, Tatooine</h4>
-      <h5>Enslaved Volunteer</h5>
-      <div class="kislista">
-     <ul >
-        <li>General help and front-desk retail operations at the junk shop, second hand
-  droid parts, mechanical / droid repair services;</li>
-<li>Designed and piloted custom-built Podracer, ran track-side operations for the
-  podracing team;</li>
-      </ul>  
-    </div>
-      </section>
-  </section> 
-   <section id="NEGYEDIK" class="foblokkok">
-    <blockquote>When I left you, I was but the learner; now I am the master.</blockquote>
-    <section id="training" class="formal">
-      <h3>Formal training</h3>
-      <h4 class="alcimmel">Green Fox Academy, Earth</h4>
-      <h5>Full stack developer
-      </h5>
-       <div class="kislista">
-     <ul >
-        <li>Padawan to Knight Tojas;</li>
-<li>Learned programming with a specialisation in JavaScript and Front-end
-  technologies</li>
-
-      </ul>      
-    </div>
-      <h4 class="alcimmel">Sith Empire, Coruscant</h4>
-      <h5>Master of the Dark Side of the Force</h5>
-      <div class="kislista">
-     <ul >
-        <li>Apprentice to Sith Lord Darth Sidious;</li>
-      </ul>      
-    </div>
-    <h4 class="alcimmel">Jedi Order Academy, Coruscant</h4>
-      <h5>Master of Jedi Force</h5>
-      <div class="kislista">
-     <ul >
-        <li>Padawan to Knight Obi Wan Kenobi. Bodyguard to Senator Padme Amidala during
-  the Clone Wars of 22 BBY;</li>
-       <li>Graduated with donors;</li>
-      </ul>      
-    </div>
-     </section>
- </section> 
-     
-  <section class="intrests">
-     <h3>Personal interests</h3>
-       <div class="kislista">
-     <ul >
-        <li>Midi-Chlorian research as a hobby;</li>
-       <li>Recreational mind-control techniques;</li>
-       <li>Amateur and local club podracing.</li>
-      </ul>      
-    </div>
-      </section>
+    </section>    
     
-         
-</div>
-<!-- partial -->
-  <script  src="./script.js"></script>
-
+  </main>
+   <script src="./scrpt.js"></script>
 </body>
 </html>
