@@ -4,37 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    
-    <title>Első webalkalmazásom</title>
+    <title>Aknamező böngészős játék by MZG</title>
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-   <main>  
-     <section id="nagykep">
-        <div id="nagyKepBefoglalo">
-            <aside class="oldalsav" id="balAside"> <button id="prevButton" onclick="prevkep()"></button></aside>
-                
-                <div id="nagyKepkeret">
-                    <div id="atlatszoResz">
-                        <h1 id="photo-title"></h1>
-                        <p id="photo-description"></p>
-                        </div>
-                    <img id="photo" src=""  alt="kecske">
-
-                    
-                    
-                </div>
-            <aside class="oldalsav" id="jobbAside"> <button id="nextButton" onclick="nextkep()"></button></aside>
-        </div>
-      </section>
-         <section id="kiskep">
-        
-    </section>    
     
-  </main>
-   <script src="./scrpt.js"></script>
+    <main>
+       
+        <div id="mainFrame">
+            <div id="mineFieldBox">
+
+                <div id="avatar">:-)</div>
+                <div  id="felugro">BOOM! <br><button onclick="retry()">Retry!</button></div>
+                <div class="popUp" id="youWin">YOU WIN!<br><button>Next Level</button></div>
+            
+            </div>
+        </div>
+        <section id="instuctions">
+            <div id="lifeCounterDiv"></div>
+        </section>
+        <footer id="joystick">
+            <button id="leftButton" onclick="step('Left')"><</button>
+            <div id="upDownButton">
+              <button id="upButton"  onclick="step('Up')">^</button> 
+              <button id="downButton" onclick="step('Down')">ˇ</button>
+            </div>
+            <button id="rightButton" onclick="step('Right')">></button>
+        </footer> 
+    </main>
+<script src="./app.js"></script>
 </body>
 </html>

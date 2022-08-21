@@ -1,0 +1,73 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2_2)">
+<path d="M11 0H0V11H11V0Z" fill="#81C36A"/>
+<path d="M21 0H10V11H21V0Z" fill="#9BBD8F"/>
+<path d="M31 0H20V11H31V0Z" fill="#81C46A"/>
+<path d="M41 0H30V11H41V0Z" fill="#8DB46E"/>
+<path d="M51 0H40V11H51V0Z" fill="#7ABA70"/>
+<path d="M61 0H50V11H61V0Z" fill="#8DB46E"/>
+<path d="M71 0H60V11H71V0Z" fill="#6BCFCF"/>
+<path d="M81 0H70V11H81V0Z" fill="#81C36A"/>
+<path d="M11 10H0V21H11V10Z" fill="#8DB46E"/>
+<path d="M21 10H10V21H21V10Z" fill="#81C36A"/>
+<path d="M31 10H20V21H31V10Z" fill="#65B06D"/>
+<path d="M41 10H30V21H41V10Z" fill="#81C46A"/>
+<path d="M51 10H40V21H51V10Z" fill="#6ADA58"/>
+<path d="M61 10H50V21H61V10Z" fill="#6BCFCF"/>
+<path d="M71 10H60V21H71V10Z" fill="#F5F94A"/>
+<path d="M81 10H70V21H81V10Z" fill="#6BCFCF"/>
+<path d="M11 20H0V31H11V20Z" fill="#6ADA58"/>
+<path d="M21 20H10V31H21V20Z" fill="#81C46A"/>
+<path d="M31 20H20V31H31V20Z" fill="#65B06D"/>
+<path d="M41 20H30V31H41V20Z" fill="#7ABA70"/>
+<path d="M51 20H40V31H51V20Z" fill="#8DB46E"/>
+<path d="M61 20H50V31H61V20Z" fill="#9BBD8F"/>
+<path d="M71 20H60V31H71V20Z" fill="#6BCFCF"/>
+<path d="M81 20H70V31H81V20Z" fill="#8DB46E"/>
+<path d="M11 30H0V41H11V30Z" fill="#81C46A"/>
+<path d="M21 30H10V41H21V30Z" fill="#81C46A"/>
+<path d="M31 30H20V41H31V30Z" fill="#6ADA58"/>
+<path d="M41 30H30V41H41V30Z" fill="#9BBD8F"/>
+<path d="M51 30H40V41H51V30Z" fill="#81C46A"/>
+<path d="M61 30H50V41H61V30Z" fill="#8DB46E"/>
+<path d="M71 30H60V41H71V30Z" fill="#9BBD8F"/>
+<path d="M81 30H70V41H81V30Z" fill="#9BBD8F"/>
+<path d="M11 40H0V51H11V40Z" fill="#6ADA58"/>
+<path d="M21 40H10V51H21V40Z" fill="#6BCFCF"/>
+<path d="M31 40H20V51H31V40Z" fill="#81C46A"/>
+<path d="M41 40H30V51H41V40Z" fill="#8DB46E"/>
+<path d="M51 40H40V51H51V40Z" fill="#6ADA58"/>
+<path d="M61 40H50V51H61V40Z" fill="#81C46A"/>
+<path d="M71 40H60V51H71V40Z" fill="#8DB46E"/>
+<path d="M81 40H70V51H81V40Z" fill="#81C46A"/>
+<path d="M11 50H0V61H11V50Z" fill="#6BCFCF"/>
+<path d="M21 50H10V61H21V50Z" fill="#F5F94A"/>
+<path d="M31 50H20V61H31V50Z" fill="#6BCFCF"/>
+<path d="M41 50H30V61H41V50Z" fill="#81C36A"/>
+<path d="M51 50H40V61H51V50Z" fill="#81C46A"/>
+<path d="M61 50H50V61H61V50Z" fill="#6ADA58"/>
+<path d="M71 50H60V61H71V50Z" fill="#8DB46E"/>
+<path d="M81 50H70V61H81V50Z" fill="#8DB46E"/>
+<path d="M11 60H0V71H11V60Z" fill="#81C46A"/>
+<path d="M21 60H10V71H21V60Z" fill="#6BCFCF"/>
+<path d="M31 60H20V71H31V60Z" fill="#65B06D"/>
+<path d="M41 60H30V71H41V60Z" fill="#81C46A"/>
+<path d="M51 60H40V71H51V60Z" fill="#9BBD8F"/>
+<path d="M61 60H50V71H61V60Z" fill="#8DB46E"/>
+<path d="M71 60H60V71H71V60Z" fill="#6ADA58"/>
+<path d="M81 60H70V71H81V60Z" fill="#65B06D"/>
+<path d="M11 70H0V81H11V70Z" fill="#7ABA70"/>
+<path d="M21 70H10V81H21V70Z" fill="#9BBD8F"/>
+<path d="M31 70H20V81H31V70Z" fill="#8DB46E"/>
+<path d="M41 70H30V81H41V70Z" fill="#9BBD8F"/>
+<path d="M51 70H40V81H51V70Z" fill="#81C36A"/>
+<path d="M61 70H50V81H61V70Z" fill="#7ABA70"/>
+<path d="M71 70H60V81H71V70Z" fill="#81C36A"/>
+<path d="M81 70H70V81H81V70Z" fill="#8DB46E"/>
+</g>
+<defs>
+<clipPath id="clip0_2_2">
+<rect width="80" height="80" fill="white"/>
+</clipPath>
+</defs>
+</svg>
