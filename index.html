@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aknamező böngészős játék by MZG</title>
 <link rel="stylesheet" href="./style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <main>
        
         <div id="mainFrame">
+                
             <div id="mineFieldBox">
-
-                <div id="avatar">:-)</div>
+                <div id="avatar" class="avatarClass">:-)</div>
                 <div  id="felugro">BOOM! <br><button onclick="retry()">Retry!</button></div>
-                <div class="popUp" id="youWin">YOU WIN!<br><button>Next Level</button></div>
-            
+                <div class="popUp" id="youWin">YOU SUCK!<br>
+                    <button onclick="newLevel()">Next Level</button><br>
+                    <button onclick="marketActivator()">Buy stuff</button>
+                </div>
+
             </div>
         </div>
         <section id="instuctions">
-            <div id="lifeCounterDiv"></div>
+            <div id="lifeCounterDiv" class="counters"><img class="pic64pixel" src="./img/tiles/heart.svg"><p></p></div>
+            <div id="levelDiv" class="counters"></div>
+            <div id="scoreDiv" class="counters"></div>
+            
         </section>
+        <section id="items">
+            <div class="metaldetector not_owned"  onclick="activateMT()"><img class="pic64pixel" src="./img/8x8beep.svg" alt="No beep"></div>  
+            <div class="vodkaIndex not_owned" onclick="activateVodka()"><img src="./img/tiles/vodka01.svg" class="pic64pixel" alt="Vodka"></div>
+            <div id="inventoryIcon" class="vodkaIndex" onclick="marketActivator()"><img src="./img/inventory.svg" alt="Inventory"></div>
+
+        </section>
+        <!--The Joysick section-->
         <footer id="joystick">
             <button id="leftButton" onclick="step('Left')"><</button>
             <div id="upDownButton">
@@ -30,8 +46,39 @@
               <button id="downButton" onclick="step('Down')">ˇ</button>
             </div>
             <button id="rightButton" onclick="step('Right')">></button>
+       
+       
         </footer> 
+        <!--The Info popup-->
+        <div id="infoPopUp" class="popUp">Ide kerül a közlendő!  </div>
+        <!--The Market popup-->
+        <div id="market">
+            <div class="decoration-line">
+                  <div class="allProducts">
+                    <div class="product" id="bonusLifeButtonDiv" ><img class="pic128pixel" onclick="productInfoApp('life')" src="./img/tiles/heart.svg"><br><strong>Bonus life:</strong><br> 100pts<br><button onclick="buy('life')">buy</button></div>
+                    <div class="product" id="metalDetectorButtonDiv" ><img class="pic128pixel" onclick="productInfoApp('metalDetector')" src="./img/metalDetector16x16.svg"><br><strong>Metal detector:</strong><br> 500pts<br><button onclick="buy('metalDetector')">buy</button></div>
+                    <div class="product" ><img class="pic128pixel" onclick="productInfoApp('vodka')" src="./img/tiles/vodka01.svg"><br><strong>Cheap Vodka:</strong><br> 300pts <br> <button onclick="buy('vodka')">buy</button></div>
+                  </div>
+                   <div id="productInfo" class="productInfo">Click on the images for more information!</div>
+                   
+                   <div id="inventory"class="allProducts">
+                    <div><img class="pic64pixel" src="./img/tiles/heart.svg">:<span id="market-life-Num"></span></div>
+                    <div><img src="./img/metalDetector16x16.svg" class="pic64pixel">:<span id="market-MT-Num">0</span></div>
+                    <div ><img src="./img/tiles/vodka01.svg" class="pic64pixel">:<span id="market-vodka-Num">0</span></div>
+                    <div><img src="./img/obstacles/obst_1x1_01.svg" class="pic64pixel">:<span id="market-pts"></span>pts</div>
+                  </div>
+                   <button onclick="marketActivator()"  id="backtoWork">Back to work!</button>        
+               
+        
+            </div>
+            
+        </div>
     </main>
+
+<script src="./metaldetector.js"></script>
+<script src="./market.js"></script>
+<script src="./obstacle.js"></script>
 <script src="./app.js"></script>
+
 </body>
 </html>

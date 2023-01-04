@@ -1,13 +1,11 @@
 // CREATING THE BOARD ********************************************
-const rowLengthInTile = 5;
+let rowLengthInTile = 8;
 //because the board is a square:
-const columnLengthInTile = rowLengthInTile;
+let columnLengthInTile = rowLengthInTile;
 //counting the tiles
-const tileNumber = columnLengthInTile*rowLengthInTile;
+let tileNumber = columnLengthInTile*rowLengthInTile;
 // constructing the frame for tiles
 const tileDivSection = document.getElementById('mineFieldBox');
-tileDivSection.style.width = ((rowLengthInTile*40)+"px");
-tileDivSection.style.height = ((columnLengthInTile*40)+"px");
 
 //creating random number generator function to randomize tileset:
 function rng(integer){return Math.floor(Math.random() * integer) + 1;}
@@ -17,17 +15,25 @@ let bombArray =['BOOM'];
 
 
 // POPUPS ******************************************************** 
-//BOOM
-const felugroToggle = () => {
-   document.getElementById("felugro").classList.toggle("up");
-   
-}
-// You WIN popUp
-const youWinToggle = () => {
-   document.getElementById("youWin").classList.toggle("up");
-   
+
+/*TODO extract-olni az alaábbiakat ebbe a függvénybe,
+ mindenhol kicserélni!  Fontos: az ID-k neve "" között legyen!*/
+const toggleIt = (wichWindow) => {
+  document.getElementById(wichWindow).classList.toggle("up"); 
 }
 
+// Inventory activator function
+const marketActivator = ()=>{
+   amIDead? amIDead=false: amIDead=true;
+   toggleIt('market');
+   
+   document.querySelector('.productInfo').classList.add('hidden');
+   document.querySelector('.allProducts').classList.add('hidden');
+   if(currentTile===(rowLengthInTile*columnLengthInTile)){
+      document.querySelector('.allProducts').classList.remove('hidden');
+      document.querySelector('.productInfo').classList.remove('hidden');
+   };  
+}
 
 
 // STARTING A NEW LIFE after a mine exploded *********************
@@ -35,7 +41,7 @@ const youWinToggle = () => {
 //How Many life the player have (starts this many):
 let lifeNumber = 3;
 //Is the player currently dead?
-let amIDead = false;
+let amIDead;
 
 // starting a new life:
 const newLifeStart = ()=>{
@@ -47,17 +53,33 @@ const newLifeStart = ()=>{
    lifeCounter();
    amIDead = false; 
 } 
+// SCORE COUNTER DIVISION app
+let score = 0;
+const scoreCounter = ()=>{
+   if(pointArray[currentTile]){
+      score+=pointfor1Tile;
+      pointArray[currentTile] = false;
+   }; 
+   
+   document.getElementById('scoreDiv').textContent =`${score} points`
+   document.getElementById('market-pts').textContent = score+ ' ';   
+}
+   
+
+
 //LIFE COUNTER DIVISION app
 
 const lifeCounter = ()=>{
-document.getElementById('lifeCounterDiv').textContent =`${lifeNumber} life is left`
+document.querySelector('#lifeCounterDiv p').textContent =`: ${lifeNumber}`
+document.getElementById('market-life-Num').textContent = lifeNumber;
 }
 //write the lives in the first time
 lifeCounter();
 
+
 //function for RETRY button
 const retry = ()=>{
-felugroToggle();
+toggleIt("felugro");
 newLifeStart();
 }
 
@@ -69,7 +91,7 @@ const doesItBOOM = () => {if(bombArray[currentTile]){
    bombArray[currentTile] = false;
    amIDead = true;
    //Popup BOOM sign 
-   felugroToggle();
+   toggleIt("felugro");
 }
 }
 
@@ -77,7 +99,7 @@ const doesItBOOM = () => {if(bombArray[currentTile]){
 const levelFinished = ()=>{
    if(currentTile==tileNumber){
       console.log('YOU WIN!')
-      youWinToggle()
+      toggleIt("youWin");
       amIDead = true;
    }
 }
@@ -97,20 +119,20 @@ document.onkeydown = function (event) {
     switch (event.keyCode) {
        case 37:
           
-          (amIDead == true ? console.log("Halott vagy!") : step('Left'));
+          step('Left');
           break;
        
        case 38:
          
-         (amIDead == true ? console.log("Halott vagy!") : step('Up'));
+          step('Up');
       
           break;
        case 39:
-         (amIDead == true ? console.log("Halott vagy!") : step('Right'));
+         step('Right');
           
           break;
        case 40:
-         (amIDead == true ? console.log("Halott vagy!") : step('Down'));
+          step('Down');
       
           break;
     }
@@ -121,7 +143,7 @@ let currentTile =1;
 const TileMarkSwich = () => {document.getElementById(`tile${currentTile}`).classList.toggle('activeTile');}
 TileMarkSwich();
 // Locate avatar's position 
-const avatarDiv = document.getElementById('avatar')
+let avatarDiv = document.getElementById('avatar')
 // avatar positioning function
 const avatarsPosition = () =>{
    avatarDiv.style.transform = "translateX(" + (
@@ -133,55 +155,67 @@ const avatarsPosition = () =>{
 
 
 //The STEP'S code
-
 const step = (expression)=>{
-   TileMarkSwich();
+   if(amIDead == true){console.log("Halott vagy!")}
+   else{  
+         let prevStep = currentTile;
+         document.querySelector('.avatar-img').classList.toggle('reflected-avatar');
+         deBeeper();
+         TileMarkSwich();
    switch(expression) {
- case 'Right':
-   (currentTile%rowLengthInTile==0 ? console.log("Falba ütköztél jobb oldalon"): currentTile++);
-     break;
-  
- case 'Down':
-   (currentTile+rowLengthInTile>tileNumber ? console.log("Falba ütköztél alul") : currentTile += rowLengthInTile);
-     break;
- case 'Left':
-   (currentTile%columnLengthInTile==1 ? console.log("Falba ütköztél a bal oldalon")
-   : currentTile--);
-   break;
- case 'Up':
-   (currentTile-rowLengthInTile<1 ? console.log("Falba ütköztél felül") : currentTile -= rowLengthInTile);
-   break;
-   
- default:
-   console.log("Nem irány!");
-   }
-   
-   console.log("Jeleleg itt állsz: "+currentTile);
-   
-   TileMarkSwich();
- 
-   avatarsPosition();
- 
- switch(expression) {
-   case 'Right':
-       avatarDiv.style.transform += "rotate(0deg)";
-       break;
-    
-   case 'Down':
-       avatarDiv.style.transform += "rotate(90deg)";
-       break;
-   case 'Left':
-       avatarDiv.style.transform += "rotate(180deg)";
-     break;
-   case 'Up':
-       avatarDiv.style.transform += "rotate(270deg)";
-     break;
-     
-   default:
-      console.log('Nem megfelelő argumentum!');
-   }
-   doesItBOOM();
-   levelFinished();
+      case 'Right':
+         (currentTile%rowLengthInTile==0 ? console.log("Falba ütköztél jobb oldalon"): currentTile++);
+         break;
+      
+      case 'Down':
+         (currentTile+rowLengthInTile>tileNumber ? console.log("Falba ütköztél alul") : currentTile += rowLengthInTile);
+         break;
+      case 'Left':
+         (currentTile%rowLengthInTile==1 ? console.log("Falba ütköztél a bal oldalon")
+         : currentTile--);
+         break;
+      case 'Up':
+         (currentTile-rowLengthInTile<1 ? console.log("Falba ütköztél felül") : currentTile -= rowLengthInTile);
+         break;
+         
+      default:
+         console.log("Nem irány!");
+         }
+         
+         console.log("Jeleleg itt állsz: "+currentTile);
+         
+        if(obstacleArr[currentTile]){currentTile=prevStep
+      console.log('Akadályba ütköztél!')};
+         TileMarkSwich();
+      
+         avatarsPosition();
+      
+       switch(expression) {
+         case 'Right':
+            avatarDiv.style.transform += "rotate(0deg)";
+            break;
+         
+         case 'Down':
+            avatarDiv.style.transform += "rotate(90deg)";
+            break;
+         case 'Left':
+            avatarDiv.style.transform += "rotate(180deg)";
+         break;
+         case 'Up':
+            avatarDiv.style.transform += "rotate(270deg)";
+         break;
+         
+         default:
+            console.log('Nem megfelelő argumentum!');
+         }
+         
+         scoreCounter();
+         shouldIBeep(MTCaseR1(currentTile));
+         doesItBOOM();
+         levelFinished();
+
+         
+   };
 }
 
 //DEPLOYING MINES*************************************************
@@ -211,3 +245,104 @@ for(i=0; i<howManyMine; i++){
 }
 // Time to deploy these mines!
 deployMine(3);
+
+
+
+
+
+//NEW LEVEL maker
+
+// set the number of level, let the first one 1:
+let levelNumber =1;
+// set starting emoji face:
+let emoji =':-)';
+const newLevel = ()=>{
+   switch(levelNumber){
+     case 1:
+        rowLengthInTile = 8;
+        columnLengthInTile = 8;
+        pointfor1Tile = 5;
+        emoji = '8-)'; 
+      break;
+
+     case 2:
+        rowLengthInTile = 7;
+        columnLengthInTile = 7;
+        pointfor1Tile = 10;
+        emoji = ':-)';
+      break;
+
+     case 3: 
+       rowLengthInTile = 6;
+       columnLengthInTile = 6;
+       pointfor1Tile = 15;
+       emoji = ':-|'; 
+     break;
+
+     case 4: 
+       rowLengthInTile = 5;
+       columnLengthInTile = 5;
+       pointfor1Tile = 20;
+       emoji = ':-('; 
+     break;
+
+     case 5: 
+       rowLengthInTile = 4;
+       columnLengthInTile = 4;
+       pointfor1Tile = 25;
+       emoji = ':-o';
+      break;
+
+
+     default:
+      rowLengthInTile = rng(4)+4;
+      columnLengthInTile = rng(4)+4;
+      console.warn('ERROR, NO VALID LEVEL NUMBER!');
+      pointfor1Tile++;
+      emoji = '8-(';
+   }
+
+   
+   tileNumber = columnLengthInTile*rowLengthInTile;
+   tileDivSection.style.width = ((rowLengthInTile*40)+"px");
+   tileDivSection.style.height = ((columnLengthInTile*40)+"px");
+   bombArray =['BOOM'];
+   pointArray =['MONEY!'];
+   
+   // for cycle to create given number of tiles
+   tileDivSection.innerHTML = "";
+   tileDivSection.innerHTML = `<div id="avatar${levelNumber}" class="avatarClass">:-|</div>
+   <div  id="felugro"><p>BOOM!</p> <br><button onclick="retry()">Retry!</button></div>
+   <div class="popUp" id="youWin"><p>YOU WIN!</p><br><button  onclick="newLevel()">Next Level</button><button onclick="toggleIt('market')">Buy stuff</button></div>`;
+   document.getElementById(`avatar${levelNumber}`).innerHTML =`<img class="avatar-img" src="./img/avatar_01.svg"><style></style>`;
+   for(i=1; i<(tileNumber+1); i++){
+      tileDivSection.innerHTML+=`<div id="tile${i}" class="tileBasicClass">
+      <style> .tileBasicClass{width: 39px; height:39px; position: relative;} #tile${i} {background-image: url(./img/tiles/gras0${rng(4)}.png);}</style>
+      ${i}
+      </div>`;
+      bombArray[i]= false;
+      pointArray[i]=true;
+   }
+   avatarDiv = document.getElementById('avatar'+levelNumber);
+
+   
+   deployMine(3); 
+   obstArrToImg();
+
+   currentTile = 1;
+   TileMarkSwich();
+   avatarsPosition();
+   pointArray[1]=false;
+   scoreCounter();
+   document.getElementById('levelDiv').textContent = "Lvl: "+ levelNumber;
+   levelNumber++;
+   deActivateVodka();
+   deActivateMT();
+
+
+   // give back mobility to the player's avatar
+   amIDead = false;
+}
+
+// FIRST LEVEL START
+newLevel();
