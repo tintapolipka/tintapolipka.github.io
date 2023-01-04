@@ -313,7 +313,7 @@ const newLevel = ()=>{
    tileDivSection.innerHTML = "";
    tileDivSection.innerHTML = `<div id="avatar${levelNumber}" class="avatarClass">:-|</div>
    <div  id="felugro"><p>BOOM!</p> <br><button onclick="retry()">Retry!</button></div>
-   <div class="popUp" id="youWin"><p>YOU WIN!</p><br><button  onclick="newLevel()">Next Level</button><button onclick="toggleIt('market')">Buy stuff</button></div>`;
+   <div class="popUp" id="youWin"><p>YOU WIN!</p><br><button  onclick="newLevel()">Next Level</button><button onclick="marketActivator()">Buy stuff</button></div>`;
    document.getElementById(`avatar${levelNumber}`).innerHTML =`<img class="avatar-img" src="./img/avatar_01.svg"><style></style>`;
    for(i=1; i<(tileNumber+1); i++){
       tileDivSection.innerHTML+=`<div id="tile${i}" class="tileBasicClass">
