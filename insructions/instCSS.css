@@ -1,8 +1,15 @@
-body{
-    
-    margin:0;
+dialog.instructions-dialog{
+    max-height: 50%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     font-family: 'Press Start 2P', cursive;
     font-size: 10px;
+    overflow:hidden;
+    border-radius: 10px;
+    background: #9a9261 url("camuflage.svg") repeat top left; 
+    scroll-behavior: smooth;
+    
 }
 
 
@@ -12,21 +19,26 @@ body{
 }
 
 #instruction_sheet{
-    width: 500%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    width: 80%;
     height: 100%;
     margin:10px;
 }
 
 .sheet-container{
 position: relative;
-margin:10px;
+margin:20px;
 padding: auto;
 width: 100%;
-height: fit-content;
+height: 60vh;
 display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
-align-content: space-around;
+align-content: space-between;
 
 }
 
@@ -36,7 +48,8 @@ margin: 10px;
 }
 
 .minimapDiv{
-    height:300px
+    /*height:300px*/
+    height: 60vh;
 }
 
 .inst_img{
@@ -47,28 +60,46 @@ margin: 10px;
 .bubble {
     position: relative;
     width: 200px;
-    height: 100px;
-    line-height: 100px;
-    color: #FFFFFF;
+    height: max-content;
+    line-height: 20px;
+    color: #000000;
     text-align: center;
-    padding: 0px;
-    background: #ff0000;
+    padding: 20px;
+    background: #fcfcfc;
     border-radius: 10px;
-    box-shadow: 3px 3px 4px 0px #A3A3A3;
+    border: 2px solid black;
+    z-index: 2;
+    margin:10px;
+    
+    
  }
  
- .bubble:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 15px 15px 0;
-    border-color: #ff0000 transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
-    bottom: -15px;
-    left: 85px;
- }
+
+ .bubble:before {
+   content: '';
+   position: absolute;
+   background-color: rgb(255, 255, 255);
+   border-style:  solid;
+   border-color:  black;
+   border-top: 2px ;
+   border-right: 2px;
+   display: block;
+   width: 40px;
+   height: 40px;
+   z-index: 0;
+   left: -22px;
+   transform: rotate(45deg);
+   top: 15px;
+  
+}
+
+.img_wrapper{
+    width: 200px;
+    height: max-content;
+    background-color: rgba(255,255,255,.8);
+    padding: 10px;
+    border-radius: 10px;
+}
 
  .redletter{
     color: red;
@@ -80,17 +111,15 @@ margin: 10px;
     font-size: 20px;
  }
 
- #start{
-    position: absolute;
-    top: 10px;
-    left:80px;
+ .columnFlex{
+    display:flex;
+    flex-direction: column;
  }
-
- #end {
-    position: absolute;
-    bottom: 10px;
-    left: 60px;
- }
+.rowFlex{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
 
 .pic-grid-2x2{
     display: grid;
@@ -100,3 +129,73 @@ margin: 10px;
     margin: 10px;
 }
 
+.start-game{
+    background-color: red;
+}
+
+.instr-button:hover{
+    box-shadow: 0 0 2px 2px brown;
+    color: white;
+}
+
+.instr-button{
+    font-family: 'Press Start 2P', cursive;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    transition-duration: 200ms;
+    text-decoration: none;
+    color: black;
+    z-index: 100;
+}
+
+#start_game_button{
+    left: 110px;
+    position: sticky;
+    bottom: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#next-sheet-button{
+    display: inline;
+    padding: 15px;
+    background-color: #9a9261;
+    z-index:101;
+    left: 10px;
+    position: sticky;
+    bottom: 10px;
+    box-shadow: 0 0 1px 2px  yellowgreen;
+    align-self: flex-end;
+}
+
+#next-sheet-button:hover{
+    box-shadow: 0 0 2px 3px  yellow; 
+}
+
+/*
+#next-sheet-button-container{
+    left: 10px;
+    position: sticky;
+    bottom: 10px;
+}
+*/
+
+#instruction_sheet{
+    background-color: none;
+}
+
+@keyframes buttonGlow {
+    0% {box-shadow: 0 0 1px 2px greenyellow;}
+    50% {box-shadow: 0 0 3px 7px greenyellow;}
+    100% {box-shadow: 0 0 1px 2px greenyellow;}
+}
+
+.buttonGlow {
+    animation-name: buttonGlow;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count:infinite;
+}

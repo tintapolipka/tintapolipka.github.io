@@ -263,6 +263,7 @@ if(num>0){if(semmi){
     let obstImg = document.createElement('img');
 obstImg.classList.add('obstImg');
 obstImg.src = `./img/obstacles/obst_1x1_0${rng(8)}.svg`
+document.querySelector(`#tile${num} p`).innerText='';
 document.getElementById(`tile${num}`).appendChild(obstImg)
 }};
 }
@@ -285,7 +286,7 @@ const bigObstImgPaste = ()=>{
             // beillesztjük az új nagyképet
             let obstImg = document.createElement('img');
             obstImg.classList.add('obstImg2x2');
-            obstImg.src = `./img/obstacles/obst_2x2_0${rng(2)}.svg`
+            obstImg.src = `./img/obstacles/obst_2x2_0${rng(3)}.svg`
             document.getElementById(`tile${s}`).appendChild(obstImg)
         
             s+=rowLengthInTile+1;

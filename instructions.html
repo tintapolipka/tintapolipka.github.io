@@ -11,14 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
 </head>
-    <section id="instruction_sheet">
-<body>
 
-  <div class="sheet-container">
-    <div><img src="./img/colonel.svg" class="colonel" alt="Colonel says:">
+<body>
+  <dialog id="instructions-dialog" class="instructions-dialog" >  
+    
+    <section id="instruction_sheet">
+  <div class="sheet-container" id="instr-0">
+    <div class="img_wrapper  rowFlex"><img src="./img/colonel.svg" class="colonel" alt="Colonel says:">
     </div> 
     
-    <div>  
+    <div class="bubble">  
         <p>Welcome to the Army soldier!</p> 
         <p>  Your new comission is mineseeker!</p>
         <p>   What? Defuse-kit? </p>
@@ -26,62 +28,76 @@
     </div>
   </div>
 
-  <div class="sheet-container minimapDiv" >
-  <div>  
+  <div class="sheet-container minimapDiv" id="instr-1">
+  <div class="img_wrapper columnFlex">  
     <p id="start">Starts <span class="redletter"> here</span></p>
     <img src="./img/table_mini.svg" alt="first and last tile" class="colonel">
     <p id="end">Ends <span class="blueletter"> here</span></p>
 </div>
-  <div>
+  <div class="bubble">
     <p> Find a way trough enemy minefields!</p>
-    
-    
     <p>   You get payed after every squaremeter you comfirm as safe.</p>
   </div>
 </div>
-<div class="sheet-container">  
-<div class="pic-grid-2x2">
-    <img src="./img/obstacles/obst_1x1_02.svg" class="inst_img" alt="obstacle">
-    <img src="./img/obstacles/obst_1x1_03.svg" class="inst_img" alt="obstacle"> 
-    <img src="./img/obstacles/obst_1x1_05.svg" class="inst_img" alt="obstacle">
-    <img src="./img/obstacles/obst_1x1_07.svg" class="inst_img" alt="obstacle">
+<div class="sheet-container" id="instr-2">  
+  <div class="img_wrapper">
+    <div class="pic-grid-2x2">
+        <img src="./img/obstacles/obst_1x1_02.svg" class="inst_img" alt="obstacle">
+        <img src="./img/obstacles/obst_1x1_03.svg" class="inst_img" alt="obstacle"> 
+        <img src="./img/obstacles/obst_1x1_05.svg" class="inst_img" alt="obstacle">
+        <img src="./img/obstacles/obst_1x1_07.svg" class="inst_img" alt="obstacle">
+        <img src="./img/obstacles/obst_2x2_01.svg" class="inst_img" alt="obstacle">
+        <img src="./img/obstacles/obst_2x2_03.svg" class="inst_img" alt="obstacle">
+      </div>
   </div>
-  <div>
-  <p> These are obstacles, you should find a way around them.</p>
+  <div class="bubble">
+  <p> These are obstacles, you should find a way around them.</p><br><br>
 </div>
 </div> 
-<div class="sheet-container">
-<img src="./img/tiles/crater.png" alt="bomb crater" class="inst_img">
+<div class="sheet-container" id="instr-3">
 
-<p> These were your brothers in arms. Step on them respectfully!</p>
-</div>
-<div class="sheet-container">
-  <div class="pic-grid-2x2">
-    <img src="./img/metalDetector16x16.svg" alt="useful item" class="inst_img">
-    <img src="./img/tiles/vodka01.svg" alt="useful item" class="inst_img">
+  <div class="img_wrapper"><img src="./img/tiles/crater.png" alt="bomb crater" class="colonel"></div>
+  <div class ="bubble">
+<p > These were your brothers in arms. Step on them respectfully!</p>
   </div>
-  <div>
+</div>
+<div class="sheet-container" id="instr-4">
+  <div class="img_wrapper">
+    <div class="pic-grid-2x2">
+      <img src="./img/metalDetector16x16.svg" alt="useful item" class="colonel">
+      <img src="./img/tiles/vodka01.svg" alt="useful item" class="colonel">
+  </div>
+</div>
+  <div class="bubble">
     <p> These are useful items.</p>
-    <p> Buy them at the end of levels, or find them in crates!</p>
+    <p> Buy them at the end of levels! </p>
   </div>
 </div>
-<div class="sheet-container">
-  <div>
-    <img src="./img/tiles/heart.svg" class="inst_img" alt="life number symbol">
+<div class="sheet-container" id="instr-5">
+  <div class="img_wrapper">
+    <img src="./img/tiles/heart.svg" class="colonel" alt="life number symbol">
   </div>
-  <div>
+  <div class="bubble">
     <p>  These are your lives. </P><P>No, you don't have only one! </p>
   </div>
 </div>
-<div class="sheet-container">
-  <div>
-    <img src="./img/inventory.svg" class="inst_img" alt="inventory symbol">
+<div class="sheet-container" id="instr-6">
+  <div class="img_wrapper">
+    <img src="./img/inventory.svg" class="colonel" alt="inventory symbol">
   </div>
-  <div>
+  <div class="bubble">
     <p>  This is your backpack. </P><P>Your tools are all inside. </p>
       <p>(Size doesn't matter.)</p>
   </div>
 </div>
 </section>
+<section id="start_game_button">
+  <a id="start-game" class="start-game  instr-button" onclick=" newLevel()" >Start new game</a>
+  <a id="next-sheet-button" class="instr-button" onclick="document.getElementById('instructions-dialog').close(); nextInstr()" href="#instr-1" title="Next hint.">>></a>
+</section>
+
+</dialog>
+<script>
+</script>
 </body>
 </html>

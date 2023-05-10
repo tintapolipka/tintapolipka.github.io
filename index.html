@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aknamező böngészős játék by MZG</title>
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./insructions/instCSS.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -17,22 +18,23 @@
         <div id="mainFrame">
                 
             <div id="mineFieldBox">
-                <div id="avatar" class="avatarClass">:-)</div>
-                <div  id="felugro">BOOM! <br><button onclick="retry()">Retry!</button></div>
+                <div id="avatar" class="avatarClass"></div>
+                
                 <div class="popUp" id="youWin">YOU SUCK!<br>
                     <button onclick="newLevel()">Next Level</button><br>
-                    <button onclick="marketActivator()">Buy stuff</button>
+                     <img src="./img/trade.svg" alt="trade button">
                 </div>
 
             </div>
         </div>
-        <section id="instuctions">
+        <section id="instuctions" class="purple-section">
+            <div  id="felugro">BOOM! <br><button onclick="retry()">Retry!</button></div>
             <div id="lifeCounterDiv" class="counters"><img class="pic64pixel" src="./img/tiles/heart.svg"><p></p></div>
             <div id="levelDiv" class="counters"></div>
             <div id="scoreDiv" class="counters"></div>
             
         </section>
-        <section id="items">
+        <section id="items" class="purple-section">
             <div class="metaldetector not_owned"  onclick="activateMT()"><img class="pic64pixel" src="./img/8x8beep.svg" alt="No beep"></div>  
             <div class="vodkaIndex not_owned" onclick="activateVodka()"><img src="./img/tiles/vodka01.svg" class="pic64pixel" alt="Vodka"></div>
             <div id="inventoryIcon" class="vodkaIndex" onclick="marketActivator()"><img src="./img/inventory.svg" alt="Inventory"></div>
@@ -54,10 +56,10 @@
         <!--The Market popup-->
         <div id="market">
             <div class="decoration-line">
-                  <div class="allProducts">
-                    <div class="product" id="bonusLifeButtonDiv" ><img class="pic128pixel" onclick="productInfoApp('life')" src="./img/tiles/heart.svg"><br><strong>Bonus life:</strong><br> 100pts<br><button onclick="buy('life')">buy</button></div>
-                    <div class="product" id="metalDetectorButtonDiv" ><img class="pic128pixel" onclick="productInfoApp('metalDetector')" src="./img/metalDetector16x16.svg"><br><strong>Metal detector:</strong><br> 500pts<br><button onclick="buy('metalDetector')">buy</button></div>
-                    <div class="product" ><img class="pic128pixel" onclick="productInfoApp('vodka')" src="./img/tiles/vodka01.svg"><br><strong>Cheap Vodka:</strong><br> 300pts <br> <button onclick="buy('vodka')">buy</button></div>
+                  <div class="allProducts product-container">
+                    <div class="product" id="bonusLifeButtonDiv" onclick="buy('life')"> <img id="marketHeart" class="pic128pixel"  src="./img/tiles/heart.svg"><br><strong>Bonus life:</strong><br> 100pts<br><button >buy</button></div>
+                    <div class="product" id="metalDetectorButtonDiv" onclick="buy('metalDetector')"><img class="pic128pixel"  src="./img/metalDetector16x16.svg"><br><strong>Metal detector:</strong><br> 500pts<br><button >buy</button></div>
+                    <div class="product" id="vodkaButtonDiv" onclick="buy('vodka')"><img class="pic128pixel"  src="./img/tiles/vodka01.svg"><br><strong>Cheap Vodka:</strong><br> 300pts <br> <button >buy</button></div>
                   </div>
                    <div id="productInfo" class="productInfo">Click on the images for more information!</div>
                    
@@ -74,6 +76,89 @@
             
         </div>
     </main>
+
+    <dialog id="instructions-dialog" class="instructions-dialog" >  
+    
+        <section id="instruction_sheet">
+      <div class="sheet-container" id="instr-0">
+        <div class="img_wrapper  rowFlex"><img src="./img/colonel.svg" class="colonel" alt="Colonel says:">
+        </div> 
+        
+        <div class="bubble">  
+            <p>Welcome to the Army soldier!</p> 
+            
+        </div>
+      </div>
+    
+      <div class="sheet-container minimapDiv" id="instr-1">
+      <div class="img_wrapper columnFlex">  
+        <p id="start">Starts <span class="redletter"> here</span></p>
+        <img src="./img/table_mini.svg" alt="first and last tile" class="colonel">
+        <p id="end">Ends <span class="blueletter"> here</span></p>
+    </div>
+      <div class="bubble">
+        <p> Find a way trough enemy minefields!</p>
+        <p>   You get payed after every squaremeter you comfirm as safe.</p>
+      </div>
+    </div>
+    <div class="sheet-container" id="instr-2">  
+      <div class="img_wrapper">
+        <div class="pic-grid-2x2">
+            <img src="./img/obstacles/obst_1x1_02.svg" class="inst_img" alt="obstacle">
+            <img src="./img/obstacles/obst_1x1_03.svg" class="inst_img" alt="obstacle"> 
+            <img src="./img/obstacles/obst_1x1_05.svg" class="inst_img" alt="obstacle">
+            <img src="./img/obstacles/obst_1x1_07.svg" class="inst_img" alt="obstacle">
+            <img src="./img/obstacles/obst_2x2_01.svg" class="inst_img" alt="obstacle">
+            <img src="./img/obstacles/obst_2x2_03.svg" class="inst_img" alt="obstacle">
+          </div>
+      </div>
+      <div class="bubble">
+      <p> These are obstacles, you should find a way around them.</p><br><br>
+    </div>
+    </div> 
+    <div class="sheet-container" id="instr-3">
+    
+      <div class="img_wrapper"><img src="./img/tiles/crater.png" alt="bomb crater" class="colonel"></div>
+      <div class ="bubble">
+    <p > These were your brothers in arms. Step on them respectfully!</p>
+      </div>
+    </div>
+    <div class="sheet-container" id="instr-4">
+      <div class="img_wrapper">
+        <div class="pic-grid-2x2">
+          <img src="./img/metalDetector16x16.svg" alt="useful item" class="colonel">
+          <img src="./img/tiles/vodka01.svg" alt="useful item" class="colonel">
+      </div>
+    </div>
+      <div class="bubble">
+        <p> These are useful items.</p>
+        <p> Buy them at the end of levels! </p>
+      </div>
+    </div>
+    <div class="sheet-container" id="instr-5">
+      <div class="img_wrapper">
+        <img src="./img/tiles/heart.svg" class="colonel" alt="life number symbol">
+      </div>
+      <div class="bubble">
+        <p>  These are your lives. </P><P>No, you don't have only one! </p>
+      </div>
+    </div>
+    <div class="sheet-container" id="instr-6">
+      <div class="img_wrapper">
+        <img src="./img/inventory.svg" class="colonel" alt="inventory symbol">
+      </div>
+      <div class="bubble">
+        <p>  This is your backpack. </P><P>Your tools are all inside. </p>
+          <p>(Size doesn't matter.)</p>
+      </div>
+    </div>
+    </section>
+    <section id="start_game_button">
+      <a id="start-game" class="start-game  instr-button" onclick="document.getElementById('instructions-dialog').close(); newLevel()" >Start new game</a>
+      <a id="next-sheet-button" class="instr-button buttonGlow" onclick=" nextInstr()" href="#instr-1" title="Next hint.">>></a>
+    </section>
+    
+    </dialog>
 
 <script src="./metaldetector.js"></script>
 <script src="./market.js"></script>

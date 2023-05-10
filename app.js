@@ -7,7 +7,7 @@ let tileNumber = columnLengthInTile*rowLengthInTile;
 // constructing the frame for tiles
 const tileDivSection = document.getElementById('mineFieldBox');
 
-//creating random number generator function to randomize tileset:
+//random number generator function to randomize tileset:
 function rng(integer){return Math.floor(Math.random() * integer) + 1;}
 
 // creating an array to make place for mines
@@ -16,8 +16,6 @@ let bombArray =['BOOM'];
 
 // POPUPS ******************************************************** 
 
-/*TODO extract-olni az alaábbiakat ebbe a függvénybe,
- mindenhol kicserélni!  Fontos: az ID-k neve "" között legyen!*/
 const toggleIt = (wichWindow) => {
   document.getElementById(wichWindow).classList.toggle("up"); 
 }
@@ -43,15 +41,26 @@ let lifeNumber = 3;
 //Is the player currently dead?
 let amIDead;
 
+function avatarChanger(){
+   let avatarImg = document.createElement('img');
+   avatarImg.src = "./img/avatar_01.svg"
+   avatarImg.classList.add('avatar-img');
+   let avatarImgClass = document.querySelector('.avatar-img');
+   avatarImgClass.remove();
+   document.querySelector('.avatarClass').appendChild(avatarImg);
+}
+
 // starting a new life:
 const newLifeStart = ()=>{
    
    currentTile=1;
    TileMarkSwich();
    avatarsPosition();
+   
    lifeNumber--;
    lifeCounter();
-   amIDead = false; 
+   amIDead = false;
+   avatarChanger(); 
 } 
 // SCORE COUNTER DIVISION app
 let score = 0;
@@ -90,8 +99,23 @@ const doesItBOOM = () => {if(bombArray[currentTile]){
    TileMarkSwich();
    bombArray[currentTile] = false;
    amIDead = true;
+   //change avatar to skull
+   document.querySelector('.avatar-img').src="./img/skull.svg";
+
+   
    //Popup BOOM sign 
    toggleIt("felugro");
+   if(lifeNumber<1){
+      // TODO!!!! FAPADOS MEGOLDÁS!
+      document.querySelector('#felugro p').textContent= `YOUR SCORE: ${score}`;
+      document.querySelector('#felugro img').src='../img/game_over.svg';
+      document.querySelector('#felugro button').innerText = 'New';
+      document.querySelector('#felugro button').onclick =function(event){newLevel()}
+      score = 0;
+      levelNumber = 1;
+      lifeNumber = 3;
+
+   }
 }
 }
 
@@ -104,6 +128,7 @@ const levelFinished = ()=>{
    }
 }
 
+/*
 // for cycle to create given number of tiles
   for(i=1; i<(tileNumber+1); i++){
     tileDivSection.innerHTML+=`<div id="tile${i}" class="tileBasicClass">
@@ -112,12 +137,17 @@ const levelFinished = ()=>{
     </div>`;
  bombArray[i]= false;
 }
+*/
 
 // MOVING THE PLAYER'S AVATAR************************************
 // Imported CODE section from: https://www.tutorialspoint.com/detecting-arrow-key-presses-in-javascript
 document.onkeydown = function (event) {
     switch (event.keyCode) {
-       case 37:
+      case 13: 
+         
+         break;
+
+      case 37:
           
           step('Left');
           break;
@@ -141,7 +171,8 @@ document.onkeydown = function (event) {
 let currentTile =1;
 // Show or hide the active tile
 const TileMarkSwich = () => {document.getElementById(`tile${currentTile}`).classList.toggle('activeTile');}
-TileMarkSwich();
+
+//TileMarkSwich();
 // Locate avatar's position 
 let avatarDiv = document.getElementById('avatar')
 // avatar positioning function
@@ -208,7 +239,7 @@ const step = (expression)=>{
          default:
             console.log('Nem megfelelő argumentum!');
          }
-         
+         document.querySelector(`#tile${currentTile} p`).innerText='';
          scoreCounter();
          shouldIBeep(MTCaseR1(currentTile));
          doesItBOOM();
@@ -254,44 +285,33 @@ deployMine(3);
 
 // set the number of level, let the first one 1:
 let levelNumber =1;
-// set starting emoji face:
-let emoji =':-)';
-const newLevel = ()=>{
+
+
+function newLevel(){
    switch(levelNumber){
      case 1:
         rowLengthInTile = 8;
         columnLengthInTile = 8;
         pointfor1Tile = 5;
-        emoji = '8-)'; 
       break;
 
      case 2:
         rowLengthInTile = 7;
         columnLengthInTile = 7;
         pointfor1Tile = 10;
-        emoji = ':-)';
       break;
 
      case 3: 
        rowLengthInTile = 6;
        columnLengthInTile = 6;
        pointfor1Tile = 15;
-       emoji = ':-|'; 
      break;
 
      case 4: 
        rowLengthInTile = 5;
        columnLengthInTile = 5;
        pointfor1Tile = 20;
-       emoji = ':-('; 
      break;
-
-     case 5: 
-       rowLengthInTile = 4;
-       columnLengthInTile = 4;
-       pointfor1Tile = 25;
-       emoji = ':-o';
-      break;
 
 
      default:
@@ -312,17 +332,19 @@ const newLevel = ()=>{
    // for cycle to create given number of tiles
    tileDivSection.innerHTML = "";
    tileDivSection.innerHTML = `<div id="avatar${levelNumber}" class="avatarClass">:-|</div>
-   <div  id="felugro"><p>BOOM!</p> <br><button onclick="retry()">Retry!</button></div>
-   <div class="popUp" id="youWin"><p>YOU WIN!</p><br><button  onclick="newLevel()">Next Level</button><button onclick="marketActivator()">Buy stuff</button></div>`;
+   <div  id="felugro"><p>BOOM!</p><img class="pic128pixel" src="./img/skull.svg"> <br><button onclick="retry()">Retry!</button></div>
+   <div class="popUp" id="youWin"><p>YOU WIN!</p><br><button  onclick="newLevel()">Next Level</button><div id="tradeImg">Trade<img src="./img/trade.svg" class="trade_img" onclick="marketActivator()" alt="trade button"></div></div>`;
    document.getElementById(`avatar${levelNumber}`).innerHTML =`<img class="avatar-img" src="./img/avatar_01.svg"><style></style>`;
    for(i=1; i<(tileNumber+1); i++){
       tileDivSection.innerHTML+=`<div id="tile${i}" class="tileBasicClass">
-      <style> .tileBasicClass{width: 39px; height:39px; position: relative;} #tile${i} {background-image: url(./img/tiles/gras0${rng(4)}.png);}</style>
-      ${i}
+      <style>#tile${i} {background-image: url(./img/tiles/gras0${rng(4)}.png);}</style>
+      <p>${i}</p>
       </div>`;
       bombArray[i]= false;
       pointArray[i]=true;
    }
+   document.querySelector(`#tile1 p`).innerText='';
+   document.querySelector(`#tile${rowLengthInTile*columnLengthInTile} p`).innerText='Goal';
    avatarDiv = document.getElementById('avatar'+levelNumber);
 
    
@@ -338,11 +360,34 @@ const newLevel = ()=>{
    levelNumber++;
    deActivateVodka();
    deActivateMT();
-
+   productsEventListeners();
+   
 
    // give back mobility to the player's avatar
    amIDead = false;
 }
 
 // FIRST LEVEL START
-newLevel();
+//newLevel();
+document.getElementById('instructions-dialog').showModal();
+let nextInstrNr = -3;
+function nextInstr(){
+document.getElementById('next-sheet-button').href=`#instr-${nextInstrNr}`;
+//document.getElementById('next-sheet-button').click();
+if (nextInstrNr===6) {
+  document.querySelectorAll('.bubble')[0].innerText = 'Click on the\n Start new game\n button Soldier!\n\nDon\'t stall!';
+  document.getElementById('next-sheet-button').classList.remove('buttonGlow');
+  document.getElementById('start-game').classList.add('buttonGlow');
+} else if(nextInstrNr===-3){
+   document.querySelectorAll('.bubble')[0].innerText = 'Your new\n comission is\n mineseeker!'; 
+} else if(nextInstrNr=== -2){
+   document.querySelectorAll('.bubble')[0].innerText = 'What?\n Defuse-kit?'; 
+} else if(nextInstrNr=== -1){
+   document.querySelectorAll('.bubble')[0].innerText = `You've got\n boots, aren't\n ya?`; 
+   nextInstrNr++;
+}
+
+nextInstrNr>5? nextInstrNr = 0 : nextInstrNr++;
+}
+
+

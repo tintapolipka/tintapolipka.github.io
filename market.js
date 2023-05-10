@@ -30,21 +30,37 @@ document.getElementById('productInfo').style.animation ="justBought2 1s 1"
 }
 
 //product info app
-const productInfoApp = (item)=>{
-   switch (item) {
-         case 'life':
+
+
+function pInfo(){
+   let key=this.id;
+   
+   switch (key) {
+         case 'bonusLifeButtonDiv':
             document.getElementById('productInfo').textContent = 'Bonus Life: You can survive the BOOM once more!';
          break;
       
-         case 'vodka':
+         case 'vodkaButtonDiv':
             document.getElementById('productInfo').textContent = 'Cheap Vodka: You get 100 life. At start of the next level, you loose 100 life. ';
          break;
       
-         case 'metalDetector':
+         case 'metalDetectorButtonDiv':
             document.getElementById('productInfo').textContent = 'Metal detector: If there is an active mine a step away, it beeps. Has battery for only one level.';
          break;
    }
 }
+
+
+const productsEventListeners =()=>{
+let tagList = document.querySelector('.product-container').children;
+
+for(let i=0; i<tagList.length; i++){
+   
+   tagList[i].addEventListener('mouseover',pInfo);
+   }
+
+}
+
 
 const buy = (item) =>{
    switch (item) {
