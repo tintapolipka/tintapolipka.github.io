@@ -1,169 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aknamező böngészős játék by MZG</title>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./insructions/instCSS.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máté Zoltán Géza weboldala</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Nova+Mono&display=swap"
+      rel="stylesheet"
+    />
     
+    <script src="script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/511d5b99af.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.youtube.com/player_api"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li id="about-me">
+          <a href="#section-about-me">ABOUT ME</a>
+        </li>
+        <li id="home" >
+           <a href="#section-home">HOME</li></a>
+        <li id="contact">
+          <a href="#section-contact">CONTACT</a>
+        </li>
+        <li id="projects">
+          <a href="#section-projects">PROJECTS</a>
+        </li>
+      </ul>
+    </nav>
+    <menu id="left-aside">
+      <div class="image-container_decoration-outer photo-of-me-dimensions">
+        <div class="image-container photo-of-me-img-container-dimensions">
+          <img
+            class="blue-picture line-picture"
+            src="./img/Blue Group.svg"
+            alt="photo of me"
+          />
+          <img
+            class="red-picture line-picture"
+            src="./img/Red Group.svg"
+            alt="photo of me"
+          />
+          <img
+            class="yellow-picture line-picture"
+            src="./img/Yellow Group.svg"
+            alt="picture of Zoltán Géza Máté"
+          />
+        </div>
+      </div>
+      <section id="knowledge-list">
+        <div class="knowledge html5" id="html5" data-knowledge="html5">HTML 5</div>
+        <div class="knowledge css" id="css" data-knowledge="css">CSS 3</div>
+        <div class="knowledge Js" id="Js" data-knowledge="Js">JavaScript ES6</div>
+        <div class="knowledge React" id="React" data-knowledge="React">React</div>
+      </section>
+      <section>
+        <div
+        
+        class="about-me-external-links"
+        aria-hidden="true"
+      >
+        <a href="https://github.com/tintapolipka/" target="_blank">
+          <i
+            class="fa-brands fa-github"
+            title="My profile on GitHub"
+            id="footer-github-icon"
+          ></i>
+        </a>
+        <a href="https://www.facebook.com/zoltangeza.mate" target="_blank">
+          <i
+            class="fa-brands fa-facebook"
+            title="My profile on Facebook"
+            id="footer-facebook-icon"
+          ></i>
+        </a>
+        <a
+          href="https://www.youtube.com/@mazologep9822"
+          target="_blank"
+          id="footer-youtube-icon"
+        >
+          <i class="fa-brands fa-youtube" title="My channel on Youtube"></i>
+        </a>
+      </div>
+      </section>
+  
+    </menu>
+
     <main>
-       
-        <div id="mainFrame">
-                
-            <div id="mineFieldBox">
-                <div id="avatar" class="avatarClass"></div>
-                
-                <div class="popUp" id="youWin">YOU SUCK!<br>
-                    <button onclick="newLevel()">Next Level</button><br>
-                     <img src="./img/trade.svg" alt="trade button">
-                </div>
-
-            </div>
-        </div>
-        <section id="instuctions" class="purple-section">
-            <div  id="felugro">BOOM! <br><button onclick="retry()">Retry!</button></div>
-            <div id="lifeCounterDiv" class="counters"><img class="pic64pixel" src="./img/tiles/heart.svg"><p></p></div>
-            <div id="levelDiv" class="counters"></div>
-            <div id="scoreDiv" class="counters"></div>
-            
-        </section>
-        <section id="items" class="purple-section">
-            <div class="metaldetector not_owned"  onclick="activateMT()"><img class="pic64pixel" src="./img/8x8beep.svg" alt="No beep"></div>  
-            <div class="vodkaIndex not_owned" onclick="activateVodka()"><img src="./img/tiles/vodka01.svg" class="pic64pixel" alt="Vodka"></div>
-            <div id="inventoryIcon" class="vodkaIndex" onclick="marketActivator()"><img src="./img/inventory.svg" alt="Inventory"></div>
-
-        </section>
-        <!--The Joysick section-->
-        <footer id="joystick">
-            <button id="leftButton" onclick="step('Left')"><</button>
-            <div id="upDownButton">
-              <button id="upButton"  onclick="step('Up')">^</button> 
-              <button id="downButton" onclick="step('Down')">ˇ</button>
-            </div>
-            <button id="rightButton" onclick="step('Right')">></button>
-       
-       
-        </footer> 
-        <!--The Info popup-->
-        <div id="infoPopUp" class="popUp">Ide kerül a közlendő!  </div>
-        <!--The Market popup-->
-        <div id="market">
-            <div class="decoration-line">
-                  <div class="allProducts product-container">
-                    <div class="product" id="bonusLifeButtonDiv" onclick="buy('life')"> <img id="marketHeart" class="pic128pixel"  src="./img/tiles/heart.svg"><br><strong>Bonus life:</strong><br> 100pts<br><button >buy</button></div>
-                    <div class="product" id="metalDetectorButtonDiv" onclick="buy('metalDetector')"><img class="pic128pixel"  src="./img/metalDetector16x16.svg"><br><strong>Metal detector:</strong><br> 500pts<br><button >buy</button></div>
-                    <div class="product" id="vodkaButtonDiv" onclick="buy('vodka')"><img class="pic128pixel"  src="./img/tiles/vodka01.svg"><br><strong>Cheap Vodka:</strong><br> 300pts <br> <button >buy</button></div>
-                  </div>
-                   <div id="productInfo" class="productInfo">Click on the images for more information!</div>
-                   
-                   <div id="inventory"class="allProducts">
-                    <div><img class="pic64pixel" src="./img/tiles/heart.svg">:<span id="market-life-Num"></span></div>
-                    <div><img src="./img/metalDetector16x16.svg" class="pic64pixel">:<span id="market-MT-Num">0</span></div>
-                    <div ><img src="./img/tiles/vodka01.svg" class="pic64pixel">:<span id="market-vodka-Num">0</span></div>
-                    <div><img src="./img/obstacles/obst_1x1_01.svg" class="pic64pixel">:<span id="market-pts"></span>pts</div>
-                  </div>
-                   <button onclick="marketActivator()"  id="backtoWork">Back to work!</button>        
-               
-        
-            </div>
-            
-        </div>
-    </main>
-
-    <dialog id="instructions-dialog" class="instructions-dialog" >  
-    
-        <section id="instruction_sheet">
-      <div class="sheet-container" id="instr-0">
-        <div class="img_wrapper  rowFlex"><img src="./img/colonel.svg" class="colonel" alt="Colonel says:">
-        </div> 
-        
-        <div class="bubble">  
-            <p>Welcome to the Army soldier!</p> 
-            
+      <!--<div class=" hidden-on-computers centered-div"><img src="./img/graphic_face.png" ></div>-->
+      <section id="section-home" class="text-container">
+        <div class="start-this-section scroll-snap-point">
+        <div class="article-h1-container">
+          <h1 id="article-h1">Welcome to my page!</h1>
         </div>
       </div>
-    
-      <div class="sheet-container minimapDiv" id="instr-1">
-      <div class="img_wrapper columnFlex">  
-        <p id="start">Starts <span class="redletter"> here</span></p>
-        <img src="./img/table_mini.svg" alt="first and last tile" class="colonel">
-        <p id="end">Ends <span class="blueletter"> here</span></p>
+      </section>
+      <div id="original-logo-container" class="logo-container-wrapper position-sticky">
+        <div class="logo-container">
+          <div class="shapes starting_red" id="red-shape"></div>
+          <div class="shapes starting_yellow" id="yellow-shape"></div>
+          <div class="shapes starting_blue" id="blue-shape"></div>
+        </div>
     </div>
-      <div class="bubble">
-        <p> Find a way trough enemy minefields!</p>
-        <p>   You get payed after every squaremeter you comfirm as safe.</p>
+
+      <article id="article-text" class="article-text">
+        My name is Zoltán Géza Máté. I learn programming to become a web-developer. 
+        Let's explore together my custom pjojects! let me show you what I already know
+         and what I plan to learn,
+         and a little about who I am.
+         <div class="centered-div" title="Click this Dice!">
+         <div id="random-logo-button" onclick="randomLogo()" title="Change to a random logo">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      Click this Dice! Something AWSOME going to happen...
       </div>
+      </article>
+      
+      <section id="section-about-me" class="text-container">
+        <div class="start-this-section scroll-snap-point">
+        <div class="article-h1-container">
+          <h1 id="article-h1">Me and the IT world</h1>
+        </div>
+      </div>
+      </section>
+      <div class="logo-container-wrapper">
+        <div class="logo-container hidden-on-computers">
+          <div class="shapes person_shape__red red-shape " ></div>
+          <div class="shapes person_shape__yellow yellow-shape " ></div>
+          <div class="shapes person_shape__blue blue-shape " ></div>
+        </div>
     </div>
-    <div class="sheet-container" id="instr-2">  
-      <div class="img_wrapper">
-        <div class="pic-grid-2x2">
-            <img src="./img/obstacles/obst_1x1_02.svg" class="inst_img" alt="obstacle">
-            <img src="./img/obstacles/obst_1x1_03.svg" class="inst_img" alt="obstacle"> 
-            <img src="./img/obstacles/obst_1x1_05.svg" class="inst_img" alt="obstacle">
-            <img src="./img/obstacles/obst_1x1_07.svg" class="inst_img" alt="obstacle">
-            <img src="./img/obstacles/obst_2x2_01.svg" class="inst_img" alt="obstacle">
-            <img src="./img/obstacles/obst_2x2_03.svg" class="inst_img" alt="obstacle">
+    
+      <article id="article-text-about-me" class="article-text">
+        I want to change careers. I am interested in all IT jobs where there is an opportunity to develop and learn.
+        I want a job related to programming,
+         so that I can later get a job as a junior programmer.
+      </article>
+
+      <div class="about-me-knowledge-list article-text" id="about-me-knowledge-list">
+        <article class="first-row" >I now have the following certificates:</article>
+        <a
+          href="https://www.freecodecamp.org/certification/Zoltan_Geza_Mate/responsive-web-design"
+          target="_blank"
+          ><div class="knowledge html5" data-knowledge="html5" title="Click to see the certificate" >
+            HTML 5
+          </div></a> Responsive Web Design <span class="html5"><i class="fa-brands fa-free-code-camp"></i></span>
+        
+          <a href="https://www.freecodecamp.org/certification/Zoltan_Geza_Mate/responsive-web-design" target="_blank"><div class="knowledge css" data-knowledge="css" title="Click to see the certificate">
+          CSS 3
+        </div></a>  Responsive Web Design <span class="css"><i class="fa-brands fa-free-code-camp"></i></span>
+        
+        <a href="https://www.freecodecamp.org/certification/Zoltan_Geza_Mate/javascript-algorithms-and-data-structures" target="_blank"><div class="knowledge Js" data-knowledge="Js" title="Click to see the certificate">
+          JavaScript ES6
+        </div></a>  JavaScript Algorithms and Data Structures <span class="Js"><i class="fa-brands fa-free-code-camp"></i></span>
+      
+      <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/" target="_blank"><div
+          class="knowledge React"
+          data-knowledge="React" 
+          id="React"
+          title="Click here to see my course in progress"
+        >
+          React 
+        </div></a> React - The Complete Guide ...in progress 
+        
+          <span>
+          <div class="undemy-logo"><svg width="50.1%" height="100%" viewBox="0 0 153 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M40 126H0V247V250H0.120493C2.36559 277.875 35.7034 300 76.5 300C116.808 300 149.834 278.403 152.785 251H153V247V127H113V191V200.41V219.883V232V236.117C109.13 251.533 94.4808 263 77 263C57.9954 263 42.3373 249.446 40.239 232H40V228V200.41V191V126Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M76.0065 0L153 44.7486V90L76.0065 44.7486V45L0 90V45L76.0065 0.5V0Z" fill="white"/>
+          </svg></div>
+        </span>
+    
+    </div>
+  
+    <div
+        id="about-me-icon-container"
+        class="about-me-external-links"
+        aria-hidden="true"
+      >
+      <article class="start-this-section scroll-snap-point"> Check out my social media:<br></article>
+        <a href="https://github.com/tintapolipka/" target="_blank">
+          <i
+            class="fa-brands fa-github"
+            title="My profile on GitHub"
+            id="footer-github-icon"
+          ></i>
+        </a>
+        <a href="https://www.facebook.com/zoltangeza.mate" target="_blank">
+          <i
+            class="fa-brands fa-facebook"
+            title="My profile on Facebook"
+            id="footer-facebook-icon"
+          ></i>
+        </a>
+        <a
+          href="https://www.youtube.com/@mazologep9822"
+          target="_blank"
+          id="footer-youtube-icon"
+        >
+          <i class="fa-brands fa-youtube" title="My channel on Youtube"></i>
+        </a>
+      </div>
+      <div class="empty" ></div>
+      <section id="section-contact" class="text-container">
+        <div class="start-this-section scroll-snap-point">
+          <div class="article-h1-container">
+            <h1 id="article-h1">Contact me NOW!</h1>
+          </div>
+        </div>
+        </section>
+        <div class="logo-container-wrapper">
+          <div class="logo-container hidden-on-computers">
+            <div class="shapes contact_shape__red red-shape " ></div>
+            <div class="shapes contact_shape__yellow yellow-shape " ></div>
+            <div class="shapes contact_shape__blue blue-shape " ></div>
           </div>
       </div>
-      <div class="bubble">
-      <p> These are obstacles, you should find a way around them.</p><br><br>
-    </div>
-    </div> 
-    <div class="sheet-container" id="instr-3">
-    
-      <div class="img_wrapper"><img src="./img/tiles/crater.png" alt="bomb crater" class="colonel"></div>
-      <div class ="bubble">
-    <p > These were your brothers in arms. Step on them respectfully!</p>
+      
+        <article id="article-text-contacts" class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit alias, aliquid laboriosam eveniet tenetur impedit amet voluptas eum tempore culpa.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis commodi ex, esse velit expedita provident vitae veniam reiciendis necessitatibus distinctio, quia dignissimos illum adipisci magnam. Asperiores debitis veniam vero?
+          Contact me by email:<br>
+          <img src="./img/myEmail.png" alt="my email" width="307" height="25" onclick="copyEmailToClipboard()"> <button class="text-container tooltip" onmouseleave="resetText()" onclick="copyEmailToClipboard()"><i class="fas fa-clipboard"></i><p id="copy-to-clipboard" class="tooltiptext">Copy to clipboard.</p></button>
+        </article>
+      
       </div>
-    </div>
-    <div class="sheet-container" id="instr-4">
-      <div class="img_wrapper">
-        <div class="pic-grid-2x2">
-          <img src="./img/metalDetector16x16.svg" alt="useful item" class="colonel">
-          <img src="./img/tiles/vodka01.svg" alt="useful item" class="colonel">
-      </div>
-    </div>
-      <div class="bubble">
-        <p> These are useful items.</p>
-        <p> Buy them at the end of levels! </p>
-      </div>
-    </div>
-    <div class="sheet-container" id="instr-5">
-      <div class="img_wrapper">
-        <img src="./img/tiles/heart.svg" class="colonel" alt="life number symbol">
-      </div>
-      <div class="bubble">
-        <p>  These are your lives. </P><P>No, you don't have only one! </p>
-      </div>
-    </div>
-    <div class="sheet-container" id="instr-6">
-      <div class="img_wrapper">
-        <img src="./img/inventory.svg" class="colonel" alt="inventory symbol">
-      </div>
-      <div class="bubble">
-        <p>  This is your backpack. </P><P>Your tools are all inside. </p>
-          <p>(Size doesn't matter.)</p>
-      </div>
-    </div>
-    </section>
-    <section id="start_game_button">
-      <a id="start-game" class="start-game  instr-button" onclick="document.getElementById('instructions-dialog').close(); newLevel()" >Start new game</a>
-      <a id="next-sheet-button" class="instr-button buttonGlow" onclick=" nextInstr()" href="#instr-1" title="Next hint.">>></a>
-    </section>
-    
-    </dialog>
 
-<script src="./metaldetector.js"></script>
-<script src="./market.js"></script>
-<script src="./obstacle.js"></script>
-<script src="./app.js"></script>
+      <section id="section-projects" class="text-container">
+        <div class="start-this-section scroll-snap-point">
+          <div class="article-h1-container">
+            <h1 id="article-h1">My custom projects</h1>
+          </div>
+        </div>
+        </section>
+        <div class="logo-container-wrapper">
+          <div class="logo-container hidden-on-computers">
+            <div class="shapes project_red red-shape " ></div>
+            <div class="shapes project_yellow yellow-shape" ></div>
+            <div class="shapes project_blue blue-shape" ></div>
+          </div>
+      </div>
+      
+        
 
-</body>
+        <article class="article-text">
+          <h3>My Browser Based Game</h3>
+      <p>
+        A JavaScript powered game on random-generated maps width oldschool pixel-like graphics.  
+      </p>
+      <div class="centered-div">
+        <div class="image-container_decoration-outer project-img-dimensions"><a title="Watch a video on Youtube!" href="https://www.youtube.com/watch?v=fMC-hSwJv0o" target="_blank" class=" centered-div"><img src="./img/mineSeeker.png" class="image-container project-img-inner-dimensoins"></a></div>
+      <button class="text-container margin-bottom-10px" onclick="project1_dialog.showModal()"><i class="fa-brands fa-youtube" title="Watch a video"></i></button>    
+      </div>
+      <div class="external-links  scroll-snap-point">
+        <a
+          href="https://tintapolipka.github.io/Human-mineseeker-10/"
+          target="_blank"
+        >
+        <i class="fa-solid fa-land-mine-on" title="Play the game."></i>
+          Play it!
+        </a>
+        <br><br>
+        <a
+          href="https://github.com/tintapolipka/Human-mineseeker-10"
+          target="_blank"
+        >
+          <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+          Source code on GitHub
+        </a>
+      
+      </article>
+
+
+      <article class="article-text scroll-snap-point">
+        <h3>SVG pixel graphic creator app</h3>
+    <p>
+      This app helps you draw small pixel-images in scaleable SVG format. You can use reference images from your device or external link, save and load your previous work.  
+    </p>
+    <div class="centered-div">
+      <div class="image-container_decoration-outer project-img-dimensions" ><a title="Watch a video on Youtube!" href="https://www.youtube.com/watch?v=fMC-hSwJv0o" target="_blank" class=" centered-div"><img src="./img/pixBox.png" class="image-container project-img-inner-dimensoins"></a></div>
+    <button class="text-container margin-bottom-10px" onclick="project2_dialog.showModal()">More details...</button>    
+    </div>
+    <div class="external-links">
+      <a href="https://github.com/tintapolipka/PixBox" target="_blank">
+        <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+        Source code on GitHub
+      </a>
+      <br>
+      <br>
+      <a href="https://tintapolipka.github.io/PixBox" title="Try PixBox!" target="_blank">
+        <i class="fa-sharp fa-solid fa-image"></i>
+        Try it!
+      </a>
+
+    </div>  
+  </article>
+
+
+    <article class="article-text scroll-snap-point">
+      <h3>Form filling snippets</h3>
+  <p>
+    I wrote a set of snippets to make digital administation easier and faster. The development process based on constant user-feedback.  
+  </p>
+  <div class="centered-div">
+    <div class="image-container_decoration-outer project-img-dimensions" ><a title="Watch a video on Youtube!" href="https://www.youtube.com/watch?v=fMC-hSwJv0o" target="_blank" class=" centered-div"><img src="./img/urlapKitolto.png" class="image-container project-img-inner-dimensoins"></a></div>
+  <button class="text-container margin-bottom-10px"  onclick="project3_dialog.showModal()">More details...</button>    
+  </div>
+  <div class="external-links">
+    <a
+      href="https://github.com/tintapolipka/INYR-kitolto-snippetek"
+      target="_blank"
+    >
+      <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+      Source code on GitHub
+    </a>
+  </div>
+
+</article>
+
+      <dialog class="project-dialog" id="project1-dialog">
+        <div
+          class="closeBtn"
+          id="close-project1"
+          onclick="project1_dialog.close()"
+        >
+          +
+        </div>
+        <iframe
+          id="video"
+          src="https://www.youtube.com/embed/rjzsx3vbZvE?enablejsapi=1" 
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <h3>My Browser Based Game</h3>
+        <p>
+          JavaScript powered game, widh oldschool pixel graphics. I created
+          every feature from game mechanics to images.
+        </p>
+       <!-- <p>Watch this short video for more details!</p>
+        <div class="external-links">
+          <a
+            href="https://github.com/tintapolipka/Human-mineseeker-10"
+            target="_blank"
+          >
+            <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+            Source code on GitHub
+          </a>
+          
+        </div> -->
+        <div class="knowledge-list">
+          <div class="knowledge html5">HTML 5</div>
+          <div class="knowledge css">CSS</div>
+          <div class="knowledge Js">JavaScript</div>
+        </div>
+      </dialog>
+
+      <dialog class="project-dialog" id="project2-dialog">
+        <div
+          class="closeBtn"
+          id="close-project2"
+          onclick="project2_dialog.close()"
+        >
+          +
+        </div>
+        <iframe
+          id="video2"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/fMC-hSwJv0o?enablejsapi=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <h3>SVG pixel graphic creator app</h3>
+        <p>
+          This app helps you draw small pixel-images in scaleable SVG format.
+          You can use reference images from your device or external link, save
+          and load your previous work.
+        </p>
+        <p>Watch this short video for more details!</p>
+        <div class="external-links">
+          <a href="https://github.com/tintapolipka/PixBox" target="_blank">
+            <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+            Source code on GitHub
+          </a>
+        </div>
+        <div class="knowledge-list">
+          <div class="knowledge Js">JavaScript</div>
+          <div class="knowledge html5">HTML 5</div>
+          <div class="knowledge css">CSS</div>
+        </div>
+      </dialog>
+
+      <dialog class="project-dialog" id="project3-dialog">
+        <div
+          class="closeBtn"
+          id="close-project3"
+          onclick="project3_dialog.close()"
+        >
+          +
+        </div>
+        <iframe
+          id="video3"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/3PxmmXhAA8w?enablejsapi=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <h3>Form filling snippets</h3>
+        <p>
+          I wrote a set of snippets to make digital administation easier and
+          faster. The development process based on constant user-feedback.
+        </p>
+        <p>Watch this short video for more details!</p>
+
+        <div class="external-links">
+          <a
+            href="https://github.com/tintapolipka/INYR-kitolto-snippetek"
+            target="_blank"
+          >
+            <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+            Source code on GitHub
+          </a>
+        </div>
+        <div class="knowledge-list">
+          <div class="knowledge Js">JavaScript</div>
+          <div class="knowledge html5">HTML 5</div>
+          <div class="knowledge css">CSS</div>
+        </div>
+      </dialog>
+    </main>
+
+    <aside>
+      <div class="project_container">
+        <div
+          class="project_inside"
+          id="project1"
+          onclick="project1_dialog.showModal()"
+        >
+          <img
+            src="./img/mineSeeker.png"
+            alt="screen captured: Human mineseeker"
+            height="100%"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div class="project_container">
+        <div
+          class="project_inside"
+          id="project2"
+          onclick="project2_dialog.showModal()"
+        >
+          <img
+            src="./img/pixBox.png"
+            alt="pixel based SVG creator app"
+            height="100%"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div class="project_container">
+        <div
+          class="project_inside"
+          id="project3"
+          onclick="project3_dialog.showModal()"
+        >
+          <img
+            src="./img/urlapKitolto.png"
+            alt="form filling snippet"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+    </aside>
+  </body>
 </html>
