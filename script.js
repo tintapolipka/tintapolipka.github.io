@@ -556,3 +556,4 @@ for(let k =0; k<Object.keys(allTextContent).length;k++){
 
 lang = lang =='en'? 'hu':'en';
 }
+

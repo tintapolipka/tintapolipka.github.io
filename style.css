@@ -1,7 +1,7 @@
 :root {
-  --blue: rgba(0, 110, 255, 0.3);
-  --red: rgba(255, 70, 70, 0.5);
-  --yellow: rgba(255, 255, 0, 0.6);
+  --blue: #006eff4d;
+  --red: #ff464680;
+  --yellow: #ffff0099;
   --purple: rgba(138, 31, 188, 0.771);
   --pic-container-width: 200px;
   --image-container-max-width: 200px;
