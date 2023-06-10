@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Máté Zoltán Géza weboldala</title>
+    <title>Máté Zoltán Géza</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,6 +42,7 @@
         <li id="projects">
           <a href="#section-projects">PROJECTS</a>
         </li>
+        <li><a onclick="changeLanguage()"><span id="en">EN</span> / <span id="hu" class="inactive">HU</span></a></li>
       </ul>
     </nav>
     <menu id="left-aside">
@@ -119,11 +120,11 @@
         </div>
     </div>
 
-      <article id="article-text" class="article-text">
-        My name is Zoltán Géza Máté. I learn programming to become a web-developer. 
+      <article  class="article-text">
+        <span id="article-text-home">My name is Zoltán Géza Máté. I learn programming to become a web-developer. 
         Let's explore together my custom pjojects! let me show you what I already know
          and what I plan to learn,
-         and a little about who I am.
+         and a little about who I am.</span>
          <div class="centered-div" title="Click this Dice!">
          <div id="random-logo-button" onclick="randomLogo()" title="Change to a random logo">
           <div></div>
@@ -132,14 +133,14 @@
           <div></div>
           <div></div>
         </div>
-      Click this Dice! Something AWSOME going to happen...
+      <span id="click-the-dice">Click this Dice! Something AWSOME going to happen...</span>
       </div>
       </article>
       
       <section id="section-about-me" class="text-container">
         <div class="start-this-section scroll-snap-point">
         <div class="article-h1-container">
-          <h1 id="article-h1">Me and the IT world</h1>
+          <h1 id="article-h1-about-me" class="article-h1">Me and the IT world</h1>
         </div>
       </div>
       </section>
@@ -197,7 +198,7 @@
         class="about-me-external-links"
         aria-hidden="true"
       >
-      <article class="start-this-section scroll-snap-point"> Check out my social media:<br></article>
+      <article class="start-this-section scroll-snap-point" id="check-social-media"> Check out my social media:<br></article>
         <a href="https://github.com/tintapolipka/" target="_blank">
           <i
             class="fa-brands fa-github"
@@ -224,7 +225,7 @@
       <section id="section-contact" class="text-container">
         <div class="start-this-section scroll-snap-point">
           <div class="article-h1-container">
-            <h1 id="article-h1">Contact me NOW!</h1>
+            <h1 id="article-h1-contact" class="article-h1">Contact me NOW!</h1>
           </div>
         </div>
         </section>
@@ -236,10 +237,8 @@
           </div>
       </div>
       
-        <article id="article-text-contacts" class="article-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit alias, aliquid laboriosam eveniet tenetur impedit amet voluptas eum tempore culpa.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis commodi ex, esse velit expedita provident vitae veniam reiciendis necessitatibus distinctio, quia dignissimos illum adipisci magnam. Asperiores debitis veniam vero?
-          Contact me by email:<br>
+        <article  class="article-text">
+          <span id="article-text-contacts">If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!</span><br>
           <img src="./img/myEmail.png" alt="my email" width="307" height="25" onclick="copyEmailToClipboard()"> <button class="text-container tooltip" onmouseleave="resetText()" onclick="copyEmailToClipboard()"><i class="fas fa-clipboard"></i><p id="copy-to-clipboard" class="tooltiptext">Copy to clipboard.</p></button>
         </article>
       
@@ -248,7 +247,7 @@
       <section id="section-projects" class="text-container">
         <div class="start-this-section scroll-snap-point">
           <div class="article-h1-container">
-            <h1 id="article-h1">My custom projects</h1>
+            <h1 id="article-h1-projects" class="article-h1">My custom projects</h1>
           </div>
         </div>
         </section>
@@ -262,22 +261,22 @@
       
         
 
-        <article class="article-text">
+        <article id="project1-card" class="article-text">
           <h3>My Browser Based Game</h3>
       <p>
         A JavaScript powered game on random-generated maps width oldschool pixel-like graphics.  
       </p>
       <div class="centered-div">
         <div class="image-container_decoration-outer project-img-dimensions"><a title="Watch a video on Youtube!" href="https://www.youtube.com/watch?v=fMC-hSwJv0o" target="_blank" class=" centered-div"><img src="./img/mineSeeker.png" class="image-container project-img-inner-dimensoins"></a></div>
-      <button class="text-container margin-bottom-10px" onclick="project1_dialog.showModal()"><i class="fa-brands fa-youtube" title="Watch a video"></i></button>    
+      <button class="text-container margin-bottom-10px" onclick="project1_dialog.showModal()"><i class="fa-brands fa-youtube" title="Watch a video on Youtube!"></i></button>    
       </div>
       <div class="external-links  scroll-snap-point">
-        <a
+        <a title="Play the game!"
           href="https://tintapolipka.github.io/Human-mineseeker-10/"
           target="_blank"
         >
-        <i class="fa-solid fa-land-mine-on" title="Play the game."></i>
-          Play it!
+        <i class="fa-solid fa-land-mine-on" ></i>
+          <span id="play-Human-mineseeker-text">Play it!</span>
         </a>
         <br><br>
         <a
@@ -285,13 +284,13 @@
           target="_blank"
         >
           <i class="fa-brands fa-github" title="Source code on GitHub"></i>
-          Source code on GitHub
+          <span class="source-code-on-github">Source code on GitHub </span>
         </a>
       
       </article>
 
 
-      <article class="article-text scroll-snap-point">
+      <article id="project2-card" class="article-text scroll-snap-point">
         <h3>SVG pixel graphic creator app</h3>
     <p>
       This app helps you draw small pixel-images in scaleable SVG format. You can use reference images from your device or external link, save and load your previous work.  
@@ -301,22 +300,21 @@
     <button class="text-container margin-bottom-10px" onclick="project2_dialog.showModal()">More details...</button>    
     </div>
     <div class="external-links">
-      <a href="https://github.com/tintapolipka/PixBox" target="_blank">
-        <i class="fa-brands fa-github" title="Source code on GitHub"></i>
-        Source code on GitHub
-      </a>
-      <br>
-      <br>
       <a href="https://tintapolipka.github.io/PixBox" title="Try PixBox!" target="_blank">
         <i class="fa-sharp fa-solid fa-image"></i>
-        Try it!
+        <span id="try-Pixbox-text">Try it!</span>  
       </a>
-
+      <br>
+      <br>
+      <a href="https://github.com/tintapolipka/PixBox" target="_blank">
+        <i class="fa-brands fa-github" title="Source code on GitHub"></i>
+        <span class="source-code-on-github">Source code on GitHub</span>
+      </a>
     </div>  
   </article>
 
 
-    <article class="article-text scroll-snap-point">
+    <article id="project3-card" class="article-text scroll-snap-point">
       <h3>Form filling snippets</h3>
   <p>
     I wrote a set of snippets to make digital administation easier and faster. The development process based on constant user-feedback.  
@@ -331,7 +329,7 @@
       target="_blank"
     >
       <i class="fa-brands fa-github" title="Source code on GitHub"></i>
-      Source code on GitHub
+      <span class="source-code-on-github">Source code on GitHub</span>
     </a>
   </div>
 
@@ -345,14 +343,14 @@
         >
           +
         </div>
-        <iframe
+       <!-- <iframe
           id="video"
           src="https://www.youtube.com/embed/rjzsx3vbZvE?enablejsapi=1" 
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-        ></iframe>
+        ></iframe>-->
         <h3>My Browser Based Game</h3>
         <p>
           JavaScript powered game, widh oldschool pixel graphics. I created
@@ -384,7 +382,7 @@
         >
           +
         </div>
-        <iframe
+        <!--<iframe
           id="video2"
           width="560"
           height="315"
@@ -393,7 +391,7 @@
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-        ></iframe>
+        ></iframe>-->
         <h3>SVG pixel graphic creator app</h3>
         <p>
           This app helps you draw small pixel-images in scaleable SVG format.
@@ -404,7 +402,7 @@
         <div class="external-links">
           <a href="https://github.com/tintapolipka/PixBox" target="_blank">
             <i class="fa-brands fa-github" title="Source code on GitHub"></i>
-            Source code on GitHub
+            <span class="source-code-on-github">Source code on GitHub</span>
           </a>
         </div>
         <div class="knowledge-list">
@@ -422,7 +420,7 @@
         >
           +
         </div>
-        <iframe
+        <!--<iframe
           id="video3"
           width="560"
           height="315"
@@ -431,7 +429,7 @@
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-        ></iframe>
+        ></iframe>-->
         <h3>Form filling snippets</h3>
         <p>
           I wrote a set of snippets to make digital administation easier and
@@ -445,7 +443,7 @@
             target="_blank"
           >
             <i class="fa-brands fa-github" title="Source code on GitHub"></i>
-            Source code on GitHub
+            <span class="source-code-on-github">Source code on GitHub</span>
           </a>
         </div>
         <div class="knowledge-list">

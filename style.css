@@ -149,6 +149,7 @@ nav > ul {
 nav > ul > li > a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .project_container {
@@ -594,6 +595,8 @@ nav > ul > li > a {
   transition-duration: 400ms;
 }
 
+.inactive{opacity: 0.3;}
+
 .start-this-section {
   height: 100%;
   width: max-content;
@@ -630,7 +633,7 @@ button.text-container:active {
   background-image: var(--reverse-colorful-linear-gradient);
 }
 
-#article-h1 {
+#article-h1, .article-h1 {
   margin: 0;
   overflow: hidden;
   text-align: left;
@@ -1009,7 +1012,7 @@ h3 {
   }
 
   ::-webkit-scrollbar {
-    width: 1px;
+    width: 3px;
   }
 
   body {

@@ -34,40 +34,6 @@ const cssBadge = document.getElementById("css");
 const aboutMeKnoledgeList = document.getElementById('about-me-knowledge-list');
 const aboutMeCSS = document.querySelector('.about-me-knowledge-list a .css');
 
-// Text objects
-
-const allTextContent = {
-  about_me: {
-    id: 'about_me',
-    color: "#87cefa",
-    title: "Me and the IT world",
-    article:
-      "I want to change careers. I am interested in all IT jobs where there is an opportunity to develop and learn. I want a job related to programming, so that I can later get a job as a junior programmer.",
-  },
-  home: {
-    id: 'home',
-    color: "#a9e362",
-    title: "Welcome to my page!",
-    article:
-      "My name is Zoltán Géza Máté. I learn programming to become a web-developer. Let's explore together my custom pjojects! let me show you what I already know and what I plan to learn, and a little about who I am.",
-  },
-  contact: {
-    id: 'contact',
-    color: "#a9e362",
-    title: "Welcome to my page!",
-    article:
-      "My name is Zoltán Géza Máté. I learn programming to become a web-developer. Let's explore together my custom projects! let me show you what I already know and what I plan to learn, and a little about who I am.",
-  },
-  projects: {
-    id: 'projects',
-    color: "#a9e362",
-    title: "My custom projects",
-    article:
-      "These are my custom projects. No toDo lists, no wheater apps, only my own ideas.",
-  },
-};
-
-
 //animation variables
 var timingLogoAnimation; // contains setInterval to animate CSS-logo
 var isCycle; // Boolean checking if project cycle is needed
@@ -476,4 +442,117 @@ navigator.clipboard.writeText(myEmail()).then(() => {
 
 function resetText(){
   document.getElementById('copy-to-clipboard').innerText ='Copy to clipboard.';
+}
+
+//Switching language
+const recurringTxtToChange = {
+  sourceCode: {en:'Source code on GitHub', hu: 'Forráskód a GitHub-on', node: 'span[class="source-code-on-github"]', type:'text'},
+  toSeeCerificate: {en: "Click to see the certificate", hu: "A bizonyítvány megtekintéséhez kattints ide!", node:'div', type:'title' },
+  reactTitle: {hu:'Folyamatban lévő képzés leírása', type: 'title', en:"Click here to see my course in progress", node: `div`},
+  watchTheVideo: {en: "Watch a video on Youtube!", hu: "Nézz meg róla egy videót a Youtube-on!", node: `a`, type:'title'},
+  diceTitle: {en: "Change to a random logo", hu: "Véletlenszerű logo megjelenítése", node:`div`, type:'title'},
+  ClckThisDice: {en: "Click this Dice!", hu:"Kattints a kockára!", type:'title', node:`div`},
+  playTheGame: {en:"Play the game!", hu: 'Játssz egyet!', type:'title',  node:`a`},
+  tryPixbox: {en: "Try PixBox!", hu: "Próbáld ki a PixBox-ot!", type: "title", node:`a`},
+  YTvideoPlayer: {en: "YouTube video player", hu:'YouTube videólejátszó', node:`iframe`, type:'title'},
+  myProfile_GitHub: {en:"My profile on GitHub", hu: "Profilom a GitHub-on", node: `i`, type: 'title', },
+  myProfile_Facebook: {en:"My profile on Facebook", hu: "Profilom a Facebook-on", node: `i`, type: 'title', },
+  myProfile_YouTube: {en:"My channel on Youtube", hu: "YouTube csatornám", node: `i`, type: 'title', },
+}
+
+// Text objects
+
+const allTextContent = {
+  about_me: {
+    navbar: {en:'ABOUT ME', hu:'RÓLAM', node:'#about-me > a',color: "#87cefa",},
+    
+    h1: {en:"Me and the IT world",hu: 'Az IT és én', node:"#article-h1-about-me"},
+    article:
+      {en:"I want to change careers. I am interested in all IT jobs where there is an opportunity to develop and learn. I want a job related to programming, so that I can later get a job as a junior programmer.",
+       hu: "Pályaváltás előtt állok. Minden IT-val kapcsolatos munka érdekel, amelynek során tanulni és fejlődni lehet. A célom, hogy idővel kizárólag programozással foglalkozhassak.",
+       node: '#article-text-about-me',
+      },
+    certificates:{en:'I now have the following certificates:', hu:'Jelenleg a következő bizonyítványaim vannak:', node: ".first-row"},
+    check_social_media:{en: "Check out my social media:", hu:'Nézd meg a közösségi média oldalaimat', node:"#check-social-media"},
+  },
+  home: {
+    navbar:{ en:'HOME', hu: 'KEZDŐLAP' , node: '#home > a', color: "#a9e362",},
+    h1: {en:"Welcome to my page!", hu: 'Üdvözöllek az oldalmon!',node:"#article-h1",},
+    article:
+      {en: "My name is Zoltán Géza Máté. I learn programming to become a web-developer. Let's explore together my custom pjojects! Let me show you what I already know and what I plan to learn, and a little about who I am.",
+      hu: "A nevem Máté Zoltán Géza. Programozást tanulok, hogy idővel web-fejlesztővé válhassak. Nézd meg az egyedi projektjeimet! Ismerd meg, hogy mi az amit már tudok, és mi az amit a közeljövőben fogok megtanulni!",
+      node: "#article-text-home",
+    },
+    diceRoll: {en:'Click this Dice! Something AWSOME going to happen...', hu: 'Kattints a dobókockára! Valami érdekes fog történni...', node:'#click-the-dice'}
+  },
+  contact: {
+    navbar:{ en:'CONTACT', hu: 'KAPCSOLAT' , node: '#contact > a', color: "#a9e362",},
+    
+    h1: {en: "Contact me NOW!", hu: "Keress fel most!", node: '#article-h1-contact'},
+    article:
+    {en: `If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!`,
+    hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy intejút!",
+    node: '#article-text-contacts',
+  },
+  },
+  projects: {
+    navbar:{ en:'PROJECTS', hu: 'PROJEKTEK' , node: '#projects > a', color: "#a9e362",},
+    
+    h1: {en:"My custom projects",hu:'Egyedi projektjeim', node:'#article-h1-projects'},
+    project1_h3:{en:'My Browser Based Game',hu:'A böngészős játékom',node:'#project1-card > h3'},
+    project1_text:
+      {en: "A JavaScript powered game on random-generated maps width oldschool pixel-like graphics.", 
+      hu: "JavaScript alapú játék random generált pályákkal és oldschool pixel-szerű grafikával.", 
+      node: '#project1-card > p'
+    },
+    githubPages_project1_link:{
+      en:"Play it!", hu:"Játssz vele!", node:'#play-Human-mineseeker-text',
+    },
+    project2_h3:{en:'SVG pixel graphic creator app',hu:'SVG pixelgrafika készítő app',node:'#project2-card > h3'},
+    project2_text:
+      {en: "This app helps you draw small pixel-images in scaleable SVG format. You can use reference images from your device or external link, save and load your previous work.", 
+      hu: "Az applikáció segítségével kis méretű pixelképeket készíthetsz SVG formátumban. Használhatsz referencia képeket, betöltheted és módosíthatod az előző munkáidat.", 
+      node: '#project2-card > p'
+    },
+    githubPages_project2_link:{
+      en:"Try it!", hu:"Próbáld ki!", node:'#try-Pixbox-text',
+    },
+    project3_h3:{en:'Form filling snippets',hu:'Űrlap kitöltő snippetek',node:'#project3-card > h3'},
+    project3_text:
+      {en: "I wrote a set of snippets to make digital administation easier and faster. The development process based on constant user-feedback.", 
+      hu: "Az adminisztráció megkönnyítésére és felgyorsítására írtam ezeket a snippeteket. A fejlesztés a felhasználók állandó visszajelzésein alapult.", 
+      node: '#project3-card > p'
+    },
+
+    },
+};
+
+let lang = 'hu';
+function changeLanguage(){
+  console.log(lang);
+  //change between languages button:
+  document.getElementById('en').classList.toggle('inactive');
+  document.getElementById('hu').classList.toggle('inactive');
+
+//Change texts: outer cycle  
+for(let k =0; k<Object.keys(allTextContent).length;k++){
+  const sectionTexts = Object.values(allTextContent)[k];
+
+  //inner cycle
+  for(let i = 0; i<Object.keys(sectionTexts).length;i++){
+    const thisEntrie = Object.values(sectionTexts)[i];
+    document.querySelector(thisEntrie['node']).innerText = thisEntrie[lang];
+  }
+
+//Change recurring text/title:
+  for(key in recurringTxtToChange){
+    if(recurringTxtToChange[key]['type']==='title'){
+      document.querySelectorAll(`${recurringTxtToChange[key]['node']}[title="${recurringTxtToChange[key][lang==='hu'?'en':'hu']}"]`).forEach(node=>node.title=recurringTxtToChange[key][lang])
+    } else if(recurringTxtToChange[key]['type']==='text'){
+      document.querySelectorAll(recurringTxtToChange[key]['node']).forEach(node=>node.innerText=recurringTxtToChange[key][lang]);
+    }
+  }
+}
+
+lang = lang =='en'? 'hu':'en';
 }
