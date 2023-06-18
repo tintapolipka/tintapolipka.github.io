@@ -1,5 +1,6 @@
 //Variables
 //node variables
+
 const project1 = document.getElementById("project1");
 const project2 = document.getElementById("project2");
 const project3 = document.getElementById("project3");
@@ -9,9 +10,12 @@ const project2_dialog = document.getElementById('project2-dialog');
 const project3_dialog = document.getElementById('project3-dialog');
 
 const aside = document.getElementsByTagName("aside")[0];
+
+const navTag =  document.getElementsByTagName('nav')[0];
 const navbar = document.querySelector("nav ul");
 
 const body = document.body;
+const mainTag =  document.getElementsByTagName('main')[0];
 
 //navbar nodes
 const aboutMe = document.getElementById("about-me");
@@ -21,21 +25,24 @@ const projects = document.getElementById("projects");
 
 // left-aside nodes
 const imageContainer = document.querySelector(".image-container");
-
+const cssBadge = document.getElementById("css");
 const knowledgeList = document.getElementById("knowledge-list");
 
+// logo shape div nodes
 const blueShape = document.getElementById("blue-shape");
 const redShape = document.getElementById("red-shape");
 const yellowShape = document.getElementById("yellow-shape");
-
-const cssBadge = document.getElementById("css");
+// logo shape div -htmlcollection nodes
+const allBlueShapes = document.querySelectorAll(".blue-shape");
+const allRedShapes = document.querySelectorAll(".red-shape");
+const allYellowShapes = document.querySelectorAll(".yellow-shape");
 
 //about-me nodes
 const aboutMeKnoledgeList = document.getElementById('about-me-knowledge-list');
 const aboutMeCSS = document.querySelector('.about-me-knowledge-list a .css');
 
 //animation variables
-var timingLogoAnimation; // contains setInterval to animate CSS-logo
+var timingLogoAnimation; // contains setInterval to animated logos
 var isCycle; // Boolean checking if project cycle is needed
 
 //Styling functions
@@ -47,55 +54,128 @@ function logoShapeClearer() {
   redShape.classList = "";
 }
 
-function startingLogo() {
-  blueShape.classList.add("shapes", "starting_blue");
-  yellowShape.classList.add("shapes", "starting_yellow");
-  redShape.classList.add("shapes", "starting_red");
+function anyLogo(node,logotype,color) {
+  node.classList = '';/*Kell-e ez vajon?*/
+  node.classList = `${logoStyles[logotype]}${color} ${color}-shape`;
+}
+function iterateLogoNodes(nodeList,logotype,color){
+  for(let i = 0; i<nodeList.length; i++){
+    anyLogo(nodeList[i],logotype,color);
+  }
 }
 
-function circlesLogo() {
-  blueShape.classList.add("circle", "circle_blue");
-  yellowShape.classList.add("circle", "circle_yellow");
-  redShape.classList.add("circle", "circle_red");
+function startingLogo(){
+  iterateLogoNodes(allBlueShapes,'startingLogo','blue');
+  iterateLogoNodes(allRedShapes,'startingLogo','red');
+  iterateLogoNodes(allYellowShapes,'startingLogo','yellow');
 }
 
-function homeLogo() {
-  blueShape.classList.add("shapes", "home_blue");
-  yellowShape.classList.add("shapes", "home_yellow");
-  redShape.classList.add("shapes", "home_red");
+// function startingLogo() {
+//   blueShape.classList.add("shapes", "starting_blue");
+//   yellowShape.classList.add("shapes", "starting_yellow");
+//   redShape.classList.add("shapes", "starting_red");
+// }
+
+function circlesLogo(){
+  iterateLogoNodes(allBlueShapes,'circlesLogo','blue');
+  iterateLogoNodes(allRedShapes,'circlesLogo','red');
+  iterateLogoNodes(allYellowShapes,'circlesLogo','yellow');
 }
+
+// function circlesLogo() {
+//   blueShape.classList.add("circle", "circle_blue");
+//   yellowShape.classList.add("circle", "circle_yellow");
+//   redShape.classList.add("circle", "circle_red");
+// }
+
+const logoStyles = {
+  clear:'',
+  startingLogo: "shapes starting_",
+  circlesLogo: "shapes circle circle_", 
+  homeLogo: "shapes home_",
+  projectLogo:  "shapes project_",
+  reactLogo: "shapes react_shape react_shape__",
+  jsLogo: "shapes Js_shape__",
+  htmlLogo: "shapes Html_shape__",
+  diceLogo: "shapes dice_",
+  personLogo: "shapes person_shape__",
+  contactLogo: "shapes contact_shape__",
+  cssLogo: "animate-movie-picture_frame",
+}
+
+// function homeLogo() {
+//   blueShape.classList.add("shapes", "home_blue");
+//   yellowShape.classList.add("shapes", "home_yellow");
+//   redShape.classList.add("shapes", "home_red");
+// }
+
+function homeLogo(){
+  iterateLogoNodes(allBlueShapes,'homeLogo','blue');
+  iterateLogoNodes(allRedShapes,'homeLogo','red');
+  iterateLogoNodes(allYellowShapes,'homeLogo','yellow');
+}
+
+// function projectLogo() {
+//   blueShape.classList.add("project_blue", "shapes");
+//   yellowShape.classList.add("project_yellow", "shapes");
+//   redShape.classList.add("project_red", "shapes");
+// }
 
 function projectLogo() {
-  blueShape.classList.add("project_blue", "shapes");
-  yellowShape.classList.add("project_yellow", "shapes");
-  redShape.classList.add("project_red", "shapes");
+  iterateLogoNodes(allBlueShapes,'projectLogo','blue');
+  iterateLogoNodes(allRedShapes,'projectLogo','red');
+  iterateLogoNodes(allYellowShapes,'projectLogo','yellow');
 }
+
+// function reactLogo() {
+//   blueShape.classList.add("shapes", "react_shape", "react_shape__blue");
+//   yellowShape.classList.add("shapes", "react_shape", "react_shape__yellow");
+//   redShape.classList.add("shapes", "react_shape", "react_shape__red");
+// }
 
 function reactLogo() {
-  blueShape.classList.add("shapes", "react_shape", "react_shape__blue");
-  yellowShape.classList.add("shapes", "react_shape", "react_shape__yellow");
-  redShape.classList.add("shapes", "react_shape", "react_shape__red");
+  iterateLogoNodes(allBlueShapes,'reactLogo','blue');
+  iterateLogoNodes(allRedShapes,'reactLogo','red');
+  iterateLogoNodes(allYellowShapes,'reactLogo','yellow');
 }
+
+// function jsLogo() {
+//   blueShape.classList.add("Js_shape__blue", "shapes");
+//   yellowShape.classList.add("Js_shape__yellow", "shapes");
+//   redShape.classList.add("Js_shape__red", "shapes");
+// }
 
 function jsLogo() {
-  blueShape.classList.add("Js_shape__blue", "shapes");
-  yellowShape.classList.add("Js_shape__yellow", "shapes");
-  redShape.classList.add("Js_shape__red", "shapes");
+  iterateLogoNodes(allBlueShapes,'jsLogo','blue');
+  iterateLogoNodes(allRedShapes,'jsLogo','red');
+  iterateLogoNodes(allYellowShapes,'jsLogo','yellow');
 }
+
+// function htmlLogo() {
+//   blueShape.classList.add("Html_shape__blue", "shapes");
+//   yellowShape.classList.add("Html_shape__yellow", "shapes");
+//   redShape.classList.add("Html_shape__red", "shapes");
+// }
 
 function htmlLogo() {
-  blueShape.classList.add("Html_shape__blue", "shapes");
-  yellowShape.classList.add("Html_shape__yellow", "shapes");
-  redShape.classList.add("Html_shape__red", "shapes");
+  iterateLogoNodes(allBlueShapes,'htmlLogo','blue');
+  iterateLogoNodes(allRedShapes,'htmlLogo','red');
+  iterateLogoNodes(allYellowShapes,'htmlLogo','yellow');
 }
+
+// function diceLogo() {
+//   logoShapeClearer();
+//   blueShape.classList.add("dice_blue", "shapes");
+//   yellowShape.classList.add("dice_yellow", "shapes");
+//   redShape.classList.add("dice_red", "shapes");
+// }
 
 function diceLogo() {
-  logoShapeClearer();
-  blueShape.classList.add("dice_blue", "shapes");
-  yellowShape.classList.add("dice_yellow", "shapes");
-  redShape.classList.add("dice_red", "shapes");
+  //logoShapeClearer();
+  iterateLogoNodes(allBlueShapes,'diceLogo','blue');
+  iterateLogoNodes(allRedShapes,'diceLogo','red');
+  iterateLogoNodes(allYellowShapes,'diceLogo','yellow');
 }
-
 
 function cssAnimation() {
   clearTimeout(timingLogoAnimation);
@@ -103,38 +183,51 @@ function cssAnimation() {
   startingLogo();
 }
 
-function personLogo() {
-  blueShape.classList.add("person_shape__blue", "shapes");
-  yellowShape.classList.add("person_shape__yellow", "shapes");
-  redShape.classList.add("person_shape__red", "shapes");
-}
+// function personLogo() {
+//   blueShape.classList.add("person_shape__blue", "shapes");
+//   yellowShape.classList.add("person_shape__yellow", "shapes");
+//   redShape.classList.add("person_shape__red", "shapes");
+// }
 
+function personLogo() {
+  iterateLogoNodes(allBlueShapes,'personLogo','blue');
+  iterateLogoNodes(allRedShapes,'personLogo','red');
+  iterateLogoNodes(allYellowShapes,'personLogo','yellow');
+}
+/*
 function contactLogo() {
   blueShape.classList.add("contact_shape__blue", "shapes");
   yellowShape.classList.add("contact_shape__yellow", "shapes");
   redShape.classList.add("contact_shape__red", "shapes");
 }
+*/
+function contactLogo() {
+  iterateLogoNodes(allBlueShapes,'contactLogo','blue');
+  iterateLogoNodes(allRedShapes,'contactLogo','red');
+  iterateLogoNodes(allYellowShapes,'contactLogo','yellow');
+}
 
 function animateWholeLogo(ms) {
   let cycleCounter = 1;
-  function animateLogoShape(shape, startingFrame) {
+  let classSet = "animate-movie-picture_frame"
+  function animateLogoShape(shape, startingFrame, classSet, color) {
     let usedFrameNum = cycleCounter + startingFrame;
 
-    const animator = (node) => {
-      node.classList = "";
-      node.classList.add(
-        `animate-movie-picture_frame${(usedFrameNum % 4) + 1}`,
-        "shapes"
-      );
+    const animator = (nodeList, classSet, color)=>{
+      for(let i = 0; i<nodeList.length; i++){
+        
+        nodeList[i].classList = '';/*Kell-e ez vajon?*/
+        nodeList[i].classList = `${classSet}${(usedFrameNum % 4) + 1} ${color}-shape shapes`;
+      }
     };
 
-    animator(shape);
+    animator(shape,classSet,color);
   }
 
   const animateRepeat = () => {
-    animateLogoShape(redShape, 0);
-    animateLogoShape(yellowShape, 1);
-    animateLogoShape(blueShape, 2);
+    animateLogoShape(allRedShapes, 0, classSet, 'red');
+    animateLogoShape(allYellowShapes, 1, classSet, 'yellow');
+    animateLogoShape(allBlueShapes, 2, classSet, 'blue');
 
     cycleCounter++;//project
 
@@ -143,6 +236,38 @@ function animateWholeLogo(ms) {
 
   timingLogoAnimation = window.setInterval(animateRepeat, ms);
 }
+
+
+// function animateWholeLogo(ms) {
+//   let cycleCounter = 1;
+//   function animateLogoShape(shape, startingFrame) {
+//     let usedFrameNum = cycleCounter + startingFrame;
+
+//     const animator = (node) => {
+//       node.classList = "";
+//       node.classList.add(
+//         `animate-movie-picture_frame${(usedFrameNum % 4) + 1}`,
+//         "shapes"
+//       );
+//     };
+
+//     animator(shape);
+//   }
+
+//   const animateRepeat = () => {
+//     animateLogoShape(redShape, 0);
+//     animateLogoShape(yellowShape, 1);
+//     animateLogoShape(blueShape, 2);
+
+//     cycleCounter++;//project
+
+//     console.log(cycleCounter);
+//   };
+
+//   timingLogoAnimation = window.setInterval(animateRepeat, ms);
+// }
+
+// PROJECTS Rotating
 
 function focused(node) {
   node.style.width = "90%";
@@ -433,15 +558,15 @@ function myEmail() {
 
 function copyEmailToClipboard(){
 navigator.clipboard.writeText(myEmail()).then(() => {
-  document.getElementById('copy-to-clipboard').innerText ='Copied to clipboard.';
+  document.getElementById('copy-to-clipboard').innerText = lang=='hu'? 'Copied to clipboard.': 'A vágólapra másolva.';
   
 },() => {
-  document.getElementById('copy-to-clipboard').innerText = 'Failed to copy.';
+  document.getElementById('copy-to-clipboard').innerText = lang=='hu'? 'Failed to copy.':'Másolás sikertelen.';
   
 });}
 
 function resetText(){
-  document.getElementById('copy-to-clipboard').innerText ='Copy to clipboard.';
+  document.getElementById('copy-to-clipboard').innerText = lang=='hu'? 'Copy to clipboard.': 'Vágólapra másolás.';
 }
 
 //Switching language
@@ -490,10 +615,11 @@ const allTextContent = {
     
     h1: {en: "Contact me NOW!", hu: "Keress fel most!", node: '#article-h1-contact'},
     article:
-    {en: `If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!`,
-    hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy intejút!",
-    node: '#article-text-contacts',
-  },
+      {en: `If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!`,
+      hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy intejút!",
+      node: '#article-text-contacts',
+    },
+    clipboardPopUp: {en:'Copy to clipboard.', hu:'Vágólapra másolás.', node:'#copy-to-clipboard',}
   },
   projects: {
     navbar:{ en:'PROJECTS', hu: 'PROJEKTEK' , node: '#projects > a', color: "#a9e362",},
@@ -556,4 +682,24 @@ for(let k =0; k<Object.keys(allTextContent).length;k++){
 
 lang = lang =='en'? 'hu':'en';
 }
+
+
+// Showing or hideing navbar:
+
+let distanceFromTop =0;
+
+//Show/Hide navbar on mobile device 
+  //Show if scroll back, else hide it:
+document.getElementsByTagName('html')[0].addEventListener("touchmove", (_event) => {
+  if(distanceFromTop>window.scrollY){
+  navTag.classList.add('show-nav');
+} else if(distanceFromTop<window.scrollY){
+navTag.classList.remove('show-nav');
+}
+distanceFromTop = window.scrollY;
+});
+  //hide navbar after taped 
+navTag.addEventListener("touchend", (_event) => {
+  navTag.classList.remove('show-nav');
+});
 

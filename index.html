@@ -30,7 +30,7 @@
     <script src="https://www.youtube.com/player_api"></script>
   </head>
   <body>
-    <nav>
+    <nav class="show-nav hide-nav">
       <ul>
         <li id="about-me">
           <a href="#section-about-me">ABOUT ME</a>
@@ -113,11 +113,11 @@
         </div>
       </div>
       </section>
-      <div id="original-logo-container" class="logo-container-wrapper position-sticky">
+      <div id="original-logo-container" class="logo-container-wrapper"><!--class="position-sticky" -->
         <div class="logo-container">
-          <div class="shapes starting_red" id="red-shape"></div>
-          <div class="shapes starting_yellow" id="yellow-shape"></div>
-          <div class="shapes starting_blue" id="blue-shape"></div>
+          <div class="shapes starting_red red-shape" id="red-shape"></div>
+          <div class="shapes starting_yellow yellow-shape" id="yellow-shape"></div>
+          <div class="shapes starting_blue blue-shape" id="blue-shape"></div>
         </div>
     </div>
 
@@ -146,11 +146,11 @@
       </div>
       </section>
       <div class="logo-container-wrapper">
-        <div class="logo-container hidden-on-computers">
-          <div class=" hidden-on-computers"><img src="./img/graphic_face.png" ></div>
-          <!--<div class="shapes person_shape__red red-shape " ></div>
-          <div class="shapes person_shape__yellow yellow-shape " ></div>
-          <div class="shapes person_shape__blue blue-shape " ></div>-->
+        <div class="logo-container "><!-- hidden-on-computers -->
+          <div class=" hidden-on-computers"><img id="mobile-face-img" src="./img/graphic_face.png" ></div>
+          <div id="person-logo-red" class="shapes person_shape__red red-shape " ></div>
+          <div id="person-logo-yellow" class="shapes person_shape__yellow yellow-shape " ></div>
+          <div id="person-logo-blue" class="shapes person_shape__blue blue-shape " ></div>
         </div>
     </div>
     
@@ -232,16 +232,16 @@
         </div>
         </section>
         <div class="logo-container-wrapper">
-          <div class="logo-container hidden-on-computers">
+          <div class="logo-container  "><!-- hidden-on-computers -->
             <div class="shapes contact_shape__red red-shape " ></div>
             <div class="shapes contact_shape__yellow yellow-shape " ></div>
-            <div class="shapes contact_shape__blue blue-shape " ></div>
+            <div class="shapes contact_shape__blue blue-shape" id="ezItt" ></div>
           </div>
       </div>
       
         <article  class="article-text">
           <span id="article-text-contacts">If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!</span><br>
-          <img src="./img/myEmail.png" alt="my email" width="307" height="25" onclick="copyEmailToClipboard()"> <button class="text-container tooltip" onmouseleave="resetText()" onclick="copyEmailToClipboard()"><i class="fas fa-clipboard"></i><p id="copy-to-clipboard" class="tooltiptext">Copy to clipboard.</p></button>
+          <img src="./img/My_email.svg" alt="my email" width="307" height="18" onclick="copyEmailToClipboard()"> <button class="text-container tooltip" onmouseleave="resetText()" onclick="copyEmailToClipboard()"><i class="fas fa-clipboard"></i><p id="copy-to-clipboard" class="tooltiptext">Copy to clipboard.</p></button>
         </article>
       
       </div>
@@ -254,7 +254,7 @@
         </div>
         </section>
         <div class="logo-container-wrapper">
-          <div class="logo-container hidden-on-computers">
+          <div class="logo-container   "><!-- hidden-on-computers -->
             <div class="shapes project_red red-shape " ></div>
             <div class="shapes project_yellow yellow-shape" ></div>
             <div class="shapes project_blue blue-shape" ></div>

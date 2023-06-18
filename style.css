@@ -54,7 +54,7 @@ main {
   min-width: 100dvh;
   
   padding: 1rem 2rem;
-  border: 1px dotted black;
+  /* border: 1px dotted black; */
   margin-top: var(--nav-height);
   margin-left: 3.5vw;
   overflow-y: auto;
@@ -63,6 +63,8 @@ main {
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
+
+
 
 aside {
   margin: var(--nav-height) 10vh 0 10vh;
@@ -119,17 +121,27 @@ menu {
 
 nav {
   display: flex;
-
   justify-content: stretch;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  border: 1px dotted blue;
+  /* border: 1px dotted blue; */
   z-index: 10;
   width: 100%;
-  height: var(--nav-height);
+  /*height: var(--nav-height);*/
   background-image: var(--colorful-linear-gradient);
+  transition-delay: 400ms;
+  transition-duration: 400ms;
+  overflow-y: hidden;
+}
+
+.hide-nav{
+  height: 0;
+}
+.show-nav{
+  height: var(--nav-height);
+
 }
 
 nav > ul {
@@ -1011,6 +1023,11 @@ h3 {
     height: 100vh;
   }
 
+  #mobile-face-img{
+    width:100%;
+    margin: -20px;
+  }
+
   ::-webkit-scrollbar {
     width: 3px;
   }
@@ -1117,6 +1134,24 @@ h3 {
   button[class="text-container margin-bottom-10px"] {
     display: none;
   }
+#person-logo-red{
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#person-logo-yellow{
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#person-logo-blue{
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
 }
 
 @media (width < 300px) {
