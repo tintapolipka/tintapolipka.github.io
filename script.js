@@ -41,6 +41,11 @@ const allYellowShapes = document.querySelectorAll(".yellow-shape");
 const aboutMeKnoledgeList = document.getElementById('about-me-knowledge-list');
 const aboutMeCSS = document.querySelector('.about-me-knowledge-list a .css');
 
+// project card nodes
+const project1Card= document.getElementById('project1-card');
+const project2Card= document.getElementById('link-to-project2-card');
+const project3Card= document.getElementById('link-to-project3-card');
+
 //animation variables
 var timingLogoAnimation; // contains setInterval to animated logos
 var isCycle; // Boolean checking if project cycle is needed
