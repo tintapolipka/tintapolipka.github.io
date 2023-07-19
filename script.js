@@ -496,6 +496,7 @@ const recurringTxtToChange = {
   myProfile_GitHub: {en:"My profile on GitHub", hu: "Profilom a GitHub-on", node: `i`, type: 'title', },
   myProfile_Facebook: {en:"My profile on Facebook", hu: "Profilom a Facebook-on", node: `i`, type: 'title', },
   myProfile_YouTube: {en:"My channel on Youtube", hu: "YouTube csatornám", node: `i`, type: 'title', },
+  myProfile_LinkedIn: {en:"My profile on LinkedIn", hu: "LinkedIn profilom", node: `i`, type: 'title', },
 }
 
 // Text objects

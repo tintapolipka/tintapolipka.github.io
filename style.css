@@ -824,6 +824,9 @@ h3 {
 #footer-youtube-icon {
   color: var(--red);
 }
+#footer-linkedIn-icon {
+  color: rgba(251, 180, 49, 0.749);
+}
 
 /*random-logo-button*/
 
