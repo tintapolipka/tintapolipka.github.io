@@ -60,7 +60,7 @@ function logoShapeClearer() {
 }
 
 function anyLogo(node,logotype,color) {
-  node.classList = '';/*Kell-e ez vajon?*/
+  node.classList = '';
   node.classList = `${logoStyles[logotype]}${color} ${color}-shape`;
 }
 function iterateLogoNodes(nodeList,logotype,color){
@@ -75,23 +75,11 @@ function startingLogo(){
   iterateLogoNodes(allYellowShapes,'startingLogo','yellow');
 }
 
-// function startingLogo() {
-//   blueShape.classList.add("shapes", "starting_blue");
-//   yellowShape.classList.add("shapes", "starting_yellow");
-//   redShape.classList.add("shapes", "starting_red");
-// }
-
 function circlesLogo(){
   iterateLogoNodes(allBlueShapes,'circlesLogo','blue');
   iterateLogoNodes(allRedShapes,'circlesLogo','red');
   iterateLogoNodes(allYellowShapes,'circlesLogo','yellow');
 }
-
-// function circlesLogo() {
-//   blueShape.classList.add("circle", "circle_blue");
-//   yellowShape.classList.add("circle", "circle_yellow");
-//   redShape.classList.add("circle", "circle_red");
-// }
 
 const logoStyles = {
   clear:'',
@@ -108,23 +96,11 @@ const logoStyles = {
   cssLogo: "animate-movie-picture_frame",
 }
 
-// function homeLogo() {
-//   blueShape.classList.add("shapes", "home_blue");
-//   yellowShape.classList.add("shapes", "home_yellow");
-//   redShape.classList.add("shapes", "home_red");
-// }
-
 function homeLogo(){
   iterateLogoNodes(allBlueShapes,'homeLogo','blue');
   iterateLogoNodes(allRedShapes,'homeLogo','red');
   iterateLogoNodes(allYellowShapes,'homeLogo','yellow');
 }
-
-// function projectLogo() {
-//   blueShape.classList.add("project_blue", "shapes");
-//   yellowShape.classList.add("project_yellow", "shapes");
-//   redShape.classList.add("project_red", "shapes");
-// }
 
 function projectLogo() {
   iterateLogoNodes(allBlueShapes,'projectLogo','blue');
@@ -132,23 +108,11 @@ function projectLogo() {
   iterateLogoNodes(allYellowShapes,'projectLogo','yellow');
 }
 
-// function reactLogo() {
-//   blueShape.classList.add("shapes", "react_shape", "react_shape__blue");
-//   yellowShape.classList.add("shapes", "react_shape", "react_shape__yellow");
-//   redShape.classList.add("shapes", "react_shape", "react_shape__red");
-// }
-
 function reactLogo() {
   iterateLogoNodes(allBlueShapes,'reactLogo','blue');
   iterateLogoNodes(allRedShapes,'reactLogo','red');
   iterateLogoNodes(allYellowShapes,'reactLogo','yellow');
 }
-
-// function jsLogo() {
-//   blueShape.classList.add("Js_shape__blue", "shapes");
-//   yellowShape.classList.add("Js_shape__yellow", "shapes");
-//   redShape.classList.add("Js_shape__red", "shapes");
-// }
 
 function jsLogo() {
   iterateLogoNodes(allBlueShapes,'jsLogo','blue');
@@ -156,27 +120,13 @@ function jsLogo() {
   iterateLogoNodes(allYellowShapes,'jsLogo','yellow');
 }
 
-// function htmlLogo() {
-//   blueShape.classList.add("Html_shape__blue", "shapes");
-//   yellowShape.classList.add("Html_shape__yellow", "shapes");
-//   redShape.classList.add("Html_shape__red", "shapes");
-// }
-
 function htmlLogo() {
   iterateLogoNodes(allBlueShapes,'htmlLogo','blue');
   iterateLogoNodes(allRedShapes,'htmlLogo','red');
   iterateLogoNodes(allYellowShapes,'htmlLogo','yellow');
 }
 
-// function diceLogo() {
-//   logoShapeClearer();
-//   blueShape.classList.add("dice_blue", "shapes");
-//   yellowShape.classList.add("dice_yellow", "shapes");
-//   redShape.classList.add("dice_red", "shapes");
-// }
-
 function diceLogo() {
-  //logoShapeClearer();
   iterateLogoNodes(allBlueShapes,'diceLogo','blue');
   iterateLogoNodes(allRedShapes,'diceLogo','red');
   iterateLogoNodes(allYellowShapes,'diceLogo','yellow');
@@ -188,24 +138,12 @@ function cssAnimation() {
   startingLogo();
 }
 
-// function personLogo() {
-//   blueShape.classList.add("person_shape__blue", "shapes");
-//   yellowShape.classList.add("person_shape__yellow", "shapes");
-//   redShape.classList.add("person_shape__red", "shapes");
-// }
-
 function personLogo() {
   iterateLogoNodes(allBlueShapes,'personLogo','blue');
   iterateLogoNodes(allRedShapes,'personLogo','red');
   iterateLogoNodes(allYellowShapes,'personLogo','yellow');
 }
-/*
-function contactLogo() {
-  blueShape.classList.add("contact_shape__blue", "shapes");
-  yellowShape.classList.add("contact_shape__yellow", "shapes");
-  redShape.classList.add("contact_shape__red", "shapes");
-}
-*/
+
 function contactLogo() {
   iterateLogoNodes(allBlueShapes,'contactLogo','blue');
   iterateLogoNodes(allRedShapes,'contactLogo','red');
@@ -221,7 +159,7 @@ function animateWholeLogo(ms) {
     const animator = (nodeList, classSet, color)=>{
       for(let i = 0; i<nodeList.length; i++){
         
-        nodeList[i].classList = '';/*Kell-e ez vajon?*/
+        nodeList[i].classList = '';
         nodeList[i].classList = `${classSet}${(usedFrameNum % 4) + 1} ${color}-shape shapes`;
       }
     };
@@ -234,7 +172,7 @@ function animateWholeLogo(ms) {
     animateLogoShape(allYellowShapes, 1, classSet, 'yellow');
     animateLogoShape(allBlueShapes, 2, classSet, 'blue');
 
-    cycleCounter++;//project
+    cycleCounter++;
 
     console.log(cycleCounter);
   };
@@ -242,35 +180,6 @@ function animateWholeLogo(ms) {
   timingLogoAnimation = window.setInterval(animateRepeat, ms);
 }
 
-
-// function animateWholeLogo(ms) {
-//   let cycleCounter = 1;
-//   function animateLogoShape(shape, startingFrame) {
-//     let usedFrameNum = cycleCounter + startingFrame;
-
-//     const animator = (node) => {
-//       node.classList = "";
-//       node.classList.add(
-//         `animate-movie-picture_frame${(usedFrameNum % 4) + 1}`,
-//         "shapes"
-//       );
-//     };
-
-//     animator(shape);
-//   }
-
-//   const animateRepeat = () => {
-//     animateLogoShape(redShape, 0);
-//     animateLogoShape(yellowShape, 1);
-//     animateLogoShape(blueShape, 2);
-
-//     cycleCounter++;//project
-
-//     console.log(cycleCounter);
-//   };
-
-//   timingLogoAnimation = window.setInterval(animateRepeat, ms);
-// }
 
 // PROJECTS Rotating
 
@@ -510,7 +419,6 @@ function randomLogo(){
 projectCycle(2500);
 
 
-
 // Youtube API 
 
 var player1, player2, player3;
@@ -621,10 +529,11 @@ const allTextContent = {
     h1: {en: "Contact me NOW!", hu: "Keress fel most!", node: '#article-h1-contact'},
     article:
       {en: `If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!`,
-      hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy intejút!",
+      hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy interjút!",
       node: '#article-text-contacts',
     },
-    clipboardPopUp: {en:'Copy to clipboard.', hu:'Vágólapra másolás.', node:'#copy-to-clipboard',}
+    clipboardPopUp: {en:'Copy to clipboard.', hu:'Vágólapra másolás.', node:'#copy-to-clipboard',},
+    downloadCV: {en: 'Download my CV!', hu:' Töltsd le az önéletrajzom!', node:'#download-cv'}
   },
   projects: {
     navbar:{ en:'PROJECTS', hu: 'PROJEKTEK' , node: '#projects > a', color: "#a9e362",},
