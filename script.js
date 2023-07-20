@@ -507,34 +507,34 @@ const allTextContent = {
     
     h1: {en:"Me and the IT world",hu: 'Az IT és én', node:"#article-h1-about-me"},
     article:
-      {en:"I want to change careers. I am interested in all IT jobs where there is an opportunity to develop and learn. I want a job related to programming, so that I can later get a job as a junior programmer.",
+      {en:"I am looking to change careers. I am interested in all IT jobs where there is an opportunity to widen my knowledge. I'd like to start as a frontend developer, but I see myself as a junior programmer in the future.",
        hu: "Pályaváltás előtt állok. Minden IT-val kapcsolatos munka érdekel, amelynek során tanulni és fejlődni lehet. A célom, hogy idővel kizárólag programozással foglalkozhassak.",
        node: '#article-text-about-me',
       },
-    certificates:{en:'I now have the following certificates:', hu:'Jelenleg a következő bizonyítványaim vannak:', node: ".first-row"},
+    certificates:{en:'I have the following certificates:', hu:'Jelenleg a következő bizonyítványaim vannak:', node: ".first-row"},
     check_social_media:{en: "Check out my social media:", hu:'Nézd meg a közösségi média oldalaimat', node:"#check-social-media"},
   },
   home: {
     navbar:{ en:'HOME', hu: 'KEZDŐLAP' , node: '#home > a', color: "#a9e362",},
     h1: {en:"Welcome to my page!", hu: 'Üdvözöllek az oldalmon!',node:"#article-h1",},
     article:
-      {en: "My name is Zoltán Géza Máté. I learn programming to become a web-developer. Let's explore together my custom pjojects! Let me show you what I already know and what I plan to learn, and a little about who I am.",
+      {en: "My name is Zoltán Géza Máté. I have been learning programming to become a web-developer. Let's explore together my custom pjojects! Let me show you what I already know and what I plan to learn, and a little about who I am.",
       hu: "A nevem Máté Zoltán Géza. Programozást tanulok, hogy idővel web-fejlesztővé válhassak. Nézd meg az egyedi projektjeimet! Ismerd meg, hogy mi az amit már tudok, és mi az amit a közeljövőben fogok megtanulni!",
       node: "#article-text-home",
     },
-    diceRoll: {en:'Click this Dice! Something AWSOME going to happen...', hu: 'Kattints a dobókockára! Valami érdekes fog történni...', node:'#click-the-dice'}
+    diceRoll: {en:'Click this Dice! Something AWSOME is going to happen...', hu: 'Kattints a dobókockára! Valami érdekes fog történni...', node:'#click-the-dice'}
   },
   contact: {
     navbar:{ en:'CONTACT', hu: 'KAPCSOLAT' , node: '#contact > a', color: "#a9e362",},
     
     h1: {en: "Contact me NOW!", hu: "Keress fel most!", node: '#article-h1-contact'},
     article:
-      {en: `If you need a person who is open to learning about any IT field, willing to learn and develop, and thinking about long-term commitment, then you are looking for me! Write an email and let's arrange an interview!`,
+      {en: `If you need a person who is open to learning about any IT field, willing to improve, and thinking about long-term commitment, then you are looking for me! Write me an email and let's arrange an interview!`,
       hu: "Ha olyan emberre van szükséged, aki nyitott bármelyik IT terület megismerésére, szívesen tanul és fejlődik, és hosszú távú elköteleződésben gondolkodik, akkor engem keresel! Írj emailt és egyeztessünk egy interjút!",
       node: '#article-text-contacts',
     },
     clipboardPopUp: {en:'Copy to clipboard.', hu:'Vágólapra másolás.', node:'#copy-to-clipboard',},
-    downloadCV: {en: 'Download my CV!', hu:' Töltsd le az önéletrajzom!', node:'#download-cv'}
+    downloadCV: {en: ' Download my CV!', hu:' Töltsd le az önéletrajzom!', node:'#download-cv'}
   },
   projects: {
     navbar:{ en:'PROJECTS', hu: 'PROJEKTEK' , node: '#projects > a', color: "#a9e362",},
