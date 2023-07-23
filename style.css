@@ -718,6 +718,21 @@ h3 {
   color: orange;
 }
 
+.external-links a {
+  display: block;
+  text-decoration: none;
+  color: purple;
+  font-weight: 900;
+  box-shadow: 1px 1px 0 1px rgba(67, 34, 255, 0.4);
+  border-radius: inherit;
+  padding: 5px;
+}
+
+.external-links a:hover, .external-links a:active{
+  background-color: white;
+  box-shadow: -1px -1px 0 1px rgba(67, 34, 255, 0.4);
+}
+
 .closeBtn {
   position: absolute;
   display: flex;
