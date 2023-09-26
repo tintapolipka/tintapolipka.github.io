@@ -491,7 +491,7 @@ const recurringTxtToChange = {
   diceTitle: {en: "Change to a random logo", hu: "Véletlenszerű logo megjelenítése", node:`div`, type:'title'},
   ClckThisDice: {en: "Click this Dice!", hu:"Kattints a kockára!", type:'title', node:`div`},
   playTheGame: {en:"Play the game!", hu: 'Játssz egyet!', type:'title',  node:`a`},
-  tryPixbox: {en: "Try PixBox!", hu: "Próbáld ki a PixBox-ot!", type: "title", node:`a`},
+  tryPixbox: {en: "Try Office app!", hu: "Próbáld ki az Irodai alkalmazást!", type: "title", node:`a`},
   YTvideoPlayer: {en: "YouTube video player", hu:'YouTube videólejátszó', node:`iframe`, type:'title'},
   myProfile_GitHub: {en:"My profile on GitHub", hu: "Profilom a GitHub-on", node: `i`, type: 'title', },
   myProfile_Facebook: {en:"My profile on Facebook", hu: "Profilom a Facebook-on", node: `i`, type: 'title', },
@@ -549,10 +549,10 @@ const allTextContent = {
     githubPages_project1_link:{
       en:"Play it!", hu:"Játssz vele!", node:'#play-Human-mineseeker-text',
     },
-    project2_h3:{en:'SVG pixel graphic creator app',hu:'SVG pixelgrafika készítő app',node:'#project2-card > h3'},
+    project2_h3:{en:'Office App - Object Oriented Programming',hu:'Objektum orientált irodai alakalmazás',node:'#project2-card > h3'},
     project2_text:
-      {en: "This app helps you draw small pixel-images in scaleable SVG format. You can use reference images from your device or external link, save and load your previous work.", 
-      hu: "Az applikáció segítségével kis méretű pixelképeket készíthetsz SVG formátumban. Használhatsz referencia képeket, betöltheted és módosíthatod az előző munkáidat.", 
+      {en: "This application helps you generating the complete documentation of your working time. You can print the documents using the browser's API.", 
+      hu: "Az applikáció segítségével a heti órarend és a rendkívüli események alapján legenerálja a hivatalos dokumentumokat (órarend, teljesítésigazolás, munkaidő nyilvántartás) amelyek közvetlenül nyomtathatók a böngészőből.", 
       node: '#project2-card > p'
     },
     githubPages_project2_link:{
@@ -568,7 +568,7 @@ const allTextContent = {
     },
 };
 
-let lang = 'hu';
+let lang = 'en';
 function changeLanguage(){
   console.log(lang);
   //change between languages button:
@@ -599,7 +599,7 @@ lang = lang =='en'? 'hu':'en';
 }
 
 
-// Showing or hideing navbar:
+// Showing or hiding navbar:
 
 let distanceFromTop =0;
 
@@ -618,3 +618,4 @@ navTag.addEventListener("touchend", (_event) => {
   navTag.classList.remove('show-nav');
 });
 
+changeLanguage();
